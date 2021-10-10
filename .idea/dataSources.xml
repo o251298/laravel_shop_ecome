@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="production" uuid="cfd0a15b-1d29-454e-8e3b-0a4d62bef2f7">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://0.0.0.0:3306/ecome</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="test" uuid="31b9d15c-c27c-4049-9266-72ee305e16dc">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://0.0.0.0:3307/ecome_test</jdbc-url>
+    </data-source>
+  </component>
+</project>
