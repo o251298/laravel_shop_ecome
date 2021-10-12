@@ -5,6 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminOrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +32,18 @@ Route::group([
     'middleware' => ['auth', 'admin'],
     'prefix' => 'admin'
 ], function (){
-Route::get('/', [AdminController::class, 'index'])->name('admin');
-Route::get('category', [CategoryController::class, 'index'])->name('admin.category');
+    Route::get('main', [AdminController::class, 'index'])->name('admin');
+    Route::get('category', [CategoryController::class, 'index'])->name('admin.category');
+    Route::get('category/create', [CategoryController::class, 'create'])->name('admin.category.create');
+    Route::post('category/store', [CategoryController::class, 'store'])->name('admin.category.store');
+    Route::get('category/{id}', [CategoryController::class, 'show'])->name('admin.category.show');
+    Route::get('category/delete/{category}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
+    Route::put('category/update/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
+    Route::get('order', [AdminOrderController::class, 'index'])->name('admin.order');
+    Route::get('order/{id}', [AdminOrderController::class, 'show'])->name('admin.order.show');
+    Route::get('order/delete/{id}', [AdminOrderController::class, 'destroy'])->name('admin.order.delete');
+
+
 });
 
 

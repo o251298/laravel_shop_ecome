@@ -98,6 +98,24 @@ class Order extends Model
         }
     }
 
+    public function getStatusOrdersAttribute(){
+        $statusInString = null;
+        if ($this->status == self::NEW_ORDER){
+            return $statusInString = 'Новый заказ';
+        } elseif ($this->status == self::IN_WORK_ORDER){
+            return $statusInString = 'Заказ обрабатывается';
+        } elseif ($this->status == self::CONFIRM_ORDER){
+            return $statusInString = 'Заказ подтвержден';
+        } elseif ($this->status == self::ACTIVE_ORDER){
+            return $statusInString = 'Заказ активный';
+        } elseif ($this->status == self::SEND_ORDER){
+            return $statusInString = 'Заказ отправленный';
+        } elseif ($this->status == self::DELIV_ORDER){
+            return $statusInString = 'Заказ доставленный';
+        }
+    }
+
+
     public function getStatusStringAttribute(){
         return self::getStatusOrder($this->status);
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
@@ -15,9 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Cache::get('category');
+        return view('admin.category.index', [
+            'category' => $category
+        ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.category.create');
     }
 
     /**
@@ -36,7 +40,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create($request->all());
+        if ($category){
+            session()->flash('create_category', 'Вы создали новую категорию');
+            return redirect()->route('admin.category.show', $category->id);
+        }
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -45,9 +54,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.category.view', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -70,7 +82,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        session()->flash('update_category', 'Вы обновили категорию');
+        return redirect()->route('admin.category.show', $category->id);
+
     }
 
     /**
@@ -81,6 +96,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        session()->flash('success_destroy', 'Категория успешно удалена');
+        return redirect()->back();
     }
 }
