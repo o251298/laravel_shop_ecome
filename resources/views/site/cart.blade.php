@@ -56,6 +56,7 @@
 
                                 </tbody>
                             </table>
+                            <a href="{{route('clear_cart')}}">Очистить</a>
                         </div>
 {{--                        <div class="table-cart-bottom">--}}
 
@@ -110,7 +111,7 @@
                             </table>
                         </div>
                         <div class="cart-total-bottom">
-                            <a href="#" class="btn-gradient btn-checkout">Перейти в чекаут</a>
+                            <a href="{{route('checkout')}}" class="btn-gradient btn-checkout">Перейти в чекаут</a>
                         </div>
                         <div class="sign-in-divider">
                             <span>or</span>

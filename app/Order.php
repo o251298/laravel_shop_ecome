@@ -8,6 +8,12 @@ use App\Product;
 
 class Order extends Model
 {
+    const NEW_ORDER = 0;
+    const IN_WORK_ORDER = 1;
+    const CONFIRM_ORDER = 2;
+    const ACTIVE_ORDER = 3;
+    const SEND_ORDER = 4;
+    const DELIV_ORDER = 5;
 
     protected $guarded = [];
     public static function addProductToCart($id)
@@ -22,7 +28,7 @@ class Order extends Model
             $productsInCart[$id] = 1;
         }
         Session::put('order', $productsInCart);
-        return true;
+        return self::countProductInCart();
     }
 
 
@@ -69,4 +75,48 @@ class Order extends Model
         return $order;
     }
 
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public static function getStatusOrder($status){
+        $statusInString = null;
+        if ($status == self::NEW_ORDER){
+            return $statusInString = 'Новый заказ';
+        } elseif ($status == self::IN_WORK_ORDER){
+            return $statusInString = 'Заказ обрабатывается';
+        } elseif ($status == self::CONFIRM_ORDER){
+            return $statusInString = 'Заказ подтвержден';
+        } elseif ($status == self::ACTIVE_ORDER){
+            return $statusInString = 'Заказ активный';
+        } elseif ($status == self::SEND_ORDER){
+            return $statusInString = 'Заказ отправленный';
+        } elseif ($status == self::DELIV_ORDER){
+            return $statusInString = 'Заказ доставленный';
+        }
+    }
+
+    public function getStatusStringAttribute(){
+        return self::getStatusOrder($this->status);
+    }
+    public static function countProductInCart(){
+        $count = 0;
+        if (Session::has('order')){
+            $order = Session::get('order');
+            foreach ($order as $product => $count_in_cart){
+                $count = $count + $count_in_cart;
+            }
+        }
+        return $count;
+    }
+    public static function test($email)
+    {
+        if ($orders = self::where('email', '=', $email)->first()){
+            return $orders;
+        } else {
+            return false;
+        }
+    }
 }

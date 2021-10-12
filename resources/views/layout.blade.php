@@ -131,7 +131,7 @@
 <div class="wrappage">
     <header id="header" class="header-v5">
         <div class="header-top-banner">
-            <a href="#"><img src="img/banner-top.jpg" alt="" class="img-reponsive"></a>
+            <a href="#"><img src="{{asset('/assets/img/banner-top.jpg')}}" alt="" class="img-reponsive"></a>
         </div>
         <div class="topbar">
             <div class="container container-240">
@@ -140,7 +140,7 @@
                         <div class="topbar-left">
                             <div class="element element-store hidden-xs hidden-sm">
                                 <a id="label1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="img/icon-map.png" alt="">
+                                    <img src="{{asset('/assets/img/icon-map.png')}}" alt="">
                                     <span>Store Location</span>
 
                                 </a>
@@ -151,7 +151,7 @@
                                 </ul>
                             </div>
                             <div class="element hidden-xs hidden-sm">
-                                <a href="#"><img src="img/icon-track.png" alt=""><span>Track Your Order</span></a>
+                                <a href="#"><img src="{{asset('/assets/img/icon-track.png')}}" alt=""><span>Track Your Order</span></a>
                             </div>
                             <div class="element element-account hidden-md hidden-lg">
                                 <a href="#">My Account</a>
@@ -160,18 +160,25 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-8 flex-right">
                         <div class="topbar-right">
+                            @auth()
                             <div class="element hidden-xs hidden-sm">
-                                <a href="#">Buyer Protection </a>
+                                <a href="{{route('get_logout')}}">Выйти</a>
                             </div>
+                            @endauth
+                                @guest()
+                                    <div class="element hidden-xs hidden-sm">
+                                        <a href="{{route('login')}}">Войти</a>
+                                    </div>
+                                @endguest
                             <div class="element hidden-xs hidden-sm">
                                 <a href="#">Help</a>
                             </div>
                             <div class="element hidden-xs hidden-sm">
-                                <a href="#"><img src="img/icon-phone.png" alt=""><span>Save big on our app!</span></a>
+                                <a href="#"><img src="{{asset('/assets/img/icon-phone.png')}}" alt=""><span>Save big on our app!</span></a>
                             </div>
                             <div class="element element-leaguage">
                                 <a id="label2" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="img/icon-l.png" alt="">
+                                    <img src="{{asset('/assets/img/icon-l.png')}}" alt="">
                                     <span>English</span>
                                     <span class="ion-ios-arrow-down f-10 e-arrow"></span>
                                 </a>
@@ -202,77 +209,38 @@
             <div class="container container-240">
                 <div class="row flex">
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 v-center header-logo">
-                        <a href="#"><img src="img/logo.png" alt="" class="img-reponsive"></a>
+                        <a href="#"><img src="{{asset('/assets/img/logo.png')}}" alt="" class="img-reponsive"></a>
                     </div>
                     <div class="col-lg-7 col-md-7 v-center header-search hidden-xs hidden-sm">
                         <form method="get" class="searchform ajax-search" action="/search" role="search">
                             <input type="hidden" name="type" value="product">
-                            <input type="text" onblur="if (this.value=='') this.value = this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value = ''" name="q" class="form-control" placeholder="i’m shoping for...">
-                            <ul class="list-product-search hidden-xs hidden-sm">
-                                <li>
-                                    <a class="flex align-center" href="">
-                                        <div class="product-img">
-                                            <img src="img/product/iphonex.jpg" alt="">
-                                        </div>
-                                        <h3 class="product-title">Notebook Black Spire Smartphone Black 2.0</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="flex align-center" href="">
-                                        <div class="product-img">
-                                            <img src="img/product/sound.jpg" alt="">
-                                        </div>
-                                        <h3 class="product-title">Smartphone 6S 64GB LTE</h3>
-                                    </a>
-                                <li>
-                                    <a class="flex align-center" href="">
-                                        <div class="product-img">
-                                            <img src="img/product/phone4.jpg" alt="">
-                                        </div>
-                                        <h3 class="product-title">Notebook Black Spire Smartphone Black 2.0</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="flex align-center" href="">
-                                        <div class="product-img">
-                                            <img src="img/product/phone5.jpg" alt="">
-                                        </div>
-                                        <h3 class="product-title">Smartphone 6S 64GB LTE </h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="flex align-center" href="">
-                                        <div class="product-img">
-                                            <img src="img/product/phone1.jpg" alt="">
-                                        </div>
-                                        <h3 class="product-title">Notebook Black Spire Smartphone Black 2.0</h3>
-                                    </a>
-                                </li>
-                            </ul>
+                            <input type="text" placeholder="...." name="q" class="form-control">
                             <div class="search-panel">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href='#'>All categories <span class="fa fa-caret-down"></span></a>
-                                <ul id="category" class="dropdown-menu dropdown-category">
-                                    <li><a href="#">TV & Video</a></li>
-                                    <li><a href="#">Home Audio & Theater</a></li>
-                                    <li><a href="#">Camera, Photo & Video</a></li>
-                                    <li><a href="#">Cell Phones & Accessories</a></li>
-                                    <li><a href="#">Headphones</a></li>
-                                    <li><a href="#">Car Electronics</a></li>
-                                    <li><a href="#">Electronics Showcase</a></li>
-                                </ul>
+{{--                                <a class="dropdown-toggle" data-toggle="dropdown" href='#'>All categories <span class="fa fa-caret-down"></span></a>--}}
+{{--                                <ul id="category" class="dropdown-menu dropdown-category">--}}
+{{--                                    <li><a href="#">TV & Video</a></li>--}}
+{{--                                    <li><a href="#">Home Audio & Theater</a></li>--}}
+{{--                                    <li><a href="#">Camera, Photo & Video</a></li>--}}
+{{--                                    <li><a href="#">Cell Phones & Accessories</a></li>--}}
+{{--                                    <li><a href="#">Headphones</a></li>--}}
+{{--                                    <li><a href="#">Car Electronics</a></li>--}}
+{{--                                    <li><a href="#">Electronics Showcase</a></li>--}}
+{{--                                </ul>--}}
                             </div>
                             <span class="input-group-btn">
-                                          <button class="button_search" type="button"><i class="ion-ios-search-strong"></i></button>
+                                          <button class="button_search" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button>
                                 </span>
                         </form>
-                        <div class="tags">
-                            <span>Most searched :</span>
-                            <a href="#">umbrella</a>
-                            <a href="#">hair accessories </a>
-                            <a href="#">diamond</a>
-                            <a href="#"> painting slime</a>
-                            <a href="#">sunglasses</a>
-                        </div>
+{{--                        <div class="tags">--}}
+{{--                            <span>Most searched :</span>--}}
+{{--                            <a href="#">umbrella</a>--}}
+{{--                            <a href="#">hair accessories </a>--}}
+{{--                            <a href="#">diamond</a>--}}
+{{--                            <a href="#"> painting slime</a>--}}
+{{--                            <a href="#">sunglasses</a>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="col-lg-3  col-md-3 col-sm-6 col-xs-6 v-center header-sub">
                         <div class="right-panel">
@@ -289,40 +257,13 @@
                                 <a class="hidden-xs hidden-sm" href=""><img src="img/icon-user.png" alt=""></a>
                                 <a href="#"><img src="img/icon-heart.png" alt=""></a>
                                 <div class="cart">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="label5">
-                                        <img src="img/icon-cart.png" alt="">
-                                        <span class="count cart-count">0</span>
+                                    <a href="{{route('cart')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="label5">
+                                        <img src="{{asset('/assets/img/icon-cart.png')}}" alt="">
+                                        <span class="count cart-count" id="cart_count">{{\App\Order::countProductInCart()}}</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-cart">
-                                        <ul class="mini-products-list">
-                                            <li class="item-cart">
-                                                <div class="product-img-wrap">
-                                                    <a href="#"><img src="img/cart1.jpg" alt="" class="img-reponsive"></a>
-                                                </div>
-                                                <div class="product-details">
-                                                    <div class="inner-left">
-                                                        <div class="product-name"><a href="#">Harman Kardon Onyx Studio </a></div>
-                                                        <div class="product-price">
-                                                            $ 60.00 <span>( x2)</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="e-del"><i class="ion-ios-close-empty"></i></a>
-                                            </li>
-                                            <li class="item-cart">
-                                                <div class="product-img-wrap">
-                                                    <a href="#"><img src="img/cart1.jpg" alt="" class="img-reponsive"></a>
-                                                </div>
-                                                <div class="product-details">
-                                                    <div class="inner-left">
-                                                        <div class="product-name"><a href="#">Harman Kardon Onyx Studio </a></div>
-                                                        <div class="product-price">
-                                                            $ 60.00 <span>( x2)</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="e-del"><i class="ion-ios-close-empty"></i></a>
-                                            </li>
+                                        <ul class="mini-products-list" id="mini-products-list">
+                                            <!-- DEVEL -->
                                         </ul>
                                         <div class="bottom-cart">
                                             <div class="cart-price">
@@ -330,8 +271,8 @@
                                                 <span class="price-total">$ 120.00</span>
                                             </div>
                                             <div class="button-cart">
-                                                <a href="#" class="cart-btn btn-viewcart">View Cart</a>
-                                                <a href="#" class="cart-btn e-checkout btn-gradient">Checkout</a>
+                                                <a href="{{route('cart')}}" class="cart-btn btn-viewcart">View Cart</a>
+                                                <a href="{{route('checkout')}}" class="cart-btn e-checkout btn-gradient">Checkout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -556,7 +497,7 @@
                         <div class="footer-block">
                             <h3 class="footer-block-title">Customer Service</h3>
                             <ul class="footer-block-content">
-                                <li><a href="#">My Account</a></li>
+                                <li><a href="{{route('login')}}">My Account</a></li>
                                 <li><a href="#">Track your Order</a></li>
                                 <li><a href="#">Returns/Exchange</a></li>
                                 <li><a href="#">FAQs</a></li>
@@ -607,6 +548,7 @@
 </div>
 <a href="#" class="btn-gradient scroll_top"><i class="ion-ios-arrow-up"></i></a>
 <script src="{{asset('/assets/' . 'js/jquery.js')}}"></script>
+<script src="{{asset('/js/orders.js')}}"></script>
 <script src="{{asset('/assets/' . 'js/bootstrap.js')}}"></script>
 <script src="{{asset('/assets/' . 'js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('/assets/' . 'js/slick.js')}}"></script>

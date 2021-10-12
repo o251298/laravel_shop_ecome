@@ -66,7 +66,32 @@
     <div class="e-feature">
         <div class="container container-240">
             <div class="row">
+                @if(session('success_unset_cart'))
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <div>
+                            {{session('success_unset_cart')}}
+                        </div>
+                    </div>
+                @endif
+                    @if(session('success_create_order'))
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <div>
+                                {{session('success_create_order')}}
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(session('error_create_order'))
+                        <div class="alert alert-warning d-flex align-items-center" role="alert">
+                            <div>
+                                {{session('error_create_order')}}
+                            </div>
+                        </div>
+                    @endif
+
                 <div class="col-xs-12 col-sm-4 col-md-4 feature-item">
+
+
                     <div class="feature-block-img">
                         <img src="img/feature/b_truck.png" alt="" class="img-reponsive">
                     </div>

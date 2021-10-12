@@ -44,9 +44,10 @@
                 </div>
             </div>
             <div class="product-button-group">
-                <a href="{{route('addProductToCart', $product->id)}}" class="btn-icon">
+{{--                <a href="{{route('addProductToCart', $product->id)}}" class="btn-icon">--}}
+                <button class="btn-icon add_to_cart" data-id="{{$product->id}}">
                     <span class="icon-bg icon-cart"></span>
-                </a>
+                </button>
                 <a href="#" class="btn-icon">
                     <span class="icon-bg icon-wishlist"></span>
                 </a>

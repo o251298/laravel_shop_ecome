@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+?>
 @extends('layout')
 @section('content')
     <div class="main-content space1">
@@ -82,7 +85,7 @@
                                         @error('email')
                                         {{$message}}
                                         @enderror
-                                        <input type="text" id="inputemail" name="email" class="form-control form-account">
+                                        <input type="text" id="inputemail" @auth value="{{\Illuminate\Support\Facades\Auth::user()->email}}" placeholder="{{\Illuminate\Support\Facades\Auth::user()->email}}" @endauth name="email" class="form-control form-account">
                                     </div>
                                 </div>
                             </div>
