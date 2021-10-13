@@ -1,3 +1,4 @@
+@section('title', $product->name)
 @extends('layout')
 @section('content')
     <div class="container container-240">

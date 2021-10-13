@@ -45,9 +45,22 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
         ],
+
         'order' => [
             'driver' => 'single',
             'path' => storage_path('logs/' . date('Y-m-d') .'/order.log'),
+            'level' => 'debug',
+        ],
+
+        'product' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/product/' . date('Y-m-d') .'/product.log'),
+            'level' => 'debug',
+        ],
+
+        'category' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/category/' . date('Y-m-d') .'/category.log'),
             'level' => 'debug',
         ],
 

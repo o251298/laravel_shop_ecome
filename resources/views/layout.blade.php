@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>E-come | Multi-Purpose HTML Template for Electronics Store</title>
+    <title>@yield('title', 'Магазин')</title>
     <link rel="stylesheet" href="{{asset('/assets/' . 'css/owl.carousel.min.css')}}">
     <link rel="shortcut icon" href="img/favicon.png" type="image/png">
     <link rel="stylesheet" href="{{asset('/assets/' . 'css/slick.css')}}">

@@ -6,6 +6,9 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
+use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -16,6 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        Category::cacheCategory();
         $category = Cache::get('category');
         return view('admin.category.index', [
             'category' => $category
@@ -38,11 +42,14 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $category = Category::create($request->all());
+        $path = $request->file('image')->store('category');
+        $params = $request->all();
+        $params['image'] = $path;
+        $category = Category::create($params);
         if ($category){
-            session()->flash('create_category', 'Вы создали новую категорию');
+            session()->flash('create', 'Вы создали новую категорию');
             return redirect()->route('admin.category.show', $category->id);
         }
         return redirect()->route('admin.category.index');
@@ -80,12 +87,19 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $category->update($request->all());
-        session()->flash('update_category', 'Вы обновили категорию');
+        if ($request->image !== null){
+            $path = $request->file('image')->store('category');
+            $params = $request->all();
+            $params['image'] = $path;
+            $category->update($params);
+        } else {
+            $params = $request->all();
+            $category->update($params);
+        }
+        session()->flash('update', 'Вы обновили категорию');
         return redirect()->route('admin.category.show', $category->id);
-
     }
 
     /**
@@ -99,5 +113,14 @@ class CategoryController extends Controller
         $category->delete();
         session()->flash('success_destroy', 'Категория успешно удалена');
         return redirect()->back();
+    }
+    public function export(){
+        $csv = Category::exportCategory(Category::all());
+        $filename = 'category-' . date('Y-m-d') . '-export.csv';
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename=' . $filename,
+        );
+        return response()->stream($csv,200, $headers);
     }
 }

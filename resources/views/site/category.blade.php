@@ -1,3 +1,4 @@
+@section('title', 'Категория | ' . $category->name)
 @extends('layout')
 @section('content')
     <div class="container container-240 shop-collection catleft">
@@ -319,7 +320,7 @@
                     </div>
                     -->
                     <div class="pd-top">
-                        <h1 class="title v2">Cell Phones & Accessories</h1>
+                        <h1 class="title v2">{{$category->name}}</h1>
                         <div class="show-element"><span>Showing {{count($category->products)}} of 20 results</span></div>
                     </div>
                     <!--

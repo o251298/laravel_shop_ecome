@@ -1,3 +1,4 @@
+@section('title', 'Мой кабинет')
 @extends('layout')
 @section('content')
 <div class="container container-240">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\AdminProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::group([
 ], function (){
     Route::get('main', [AdminController::class, 'index'])->name('admin');
     Route::get('category', [CategoryController::class, 'index'])->name('admin.category');
+    Route::get('category/csv', [CategoryController::class, 'export'])->name('admin.category.csv');
     Route::get('category/create', [CategoryController::class, 'create'])->name('admin.category.create');
     Route::post('category/store', [CategoryController::class, 'store'])->name('admin.category.store');
     Route::get('category/{id}', [CategoryController::class, 'show'])->name('admin.category.show');
@@ -42,7 +44,12 @@ Route::group([
     Route::get('order', [AdminOrderController::class, 'index'])->name('admin.order');
     Route::get('order/{id}', [AdminOrderController::class, 'show'])->name('admin.order.show');
     Route::get('order/delete/{id}', [AdminOrderController::class, 'destroy'])->name('admin.order.delete');
-
+    Route::get('product/create', [AdminProductController::class, 'create'])->name('admin.product.create');
+    Route::get('product/csv', [AdminProductController::class, 'export'])->name('admin.product.csv');
+    Route::get('product', [AdminProductController::class, 'index'])->name('admin.product');
+    Route::post('product/store', [AdminProductController::class, 'store'])->name('admin.product.store');
+    Route::get('product/{id}', [AdminProductController::class, 'show'])->name('admin.product.show');
+    Route::get('product/delete/{product}', [AdminProductController::class, 'destroy'])->name('admin.product.delete');
 
 });
 
@@ -50,3 +57,4 @@ Route::group([
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

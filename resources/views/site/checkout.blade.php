@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 ?>
+@section('title', 'Чекаут')
 @extends('layout')
 @section('content')
     <div class="main-content space1">

@@ -1,3 +1,4 @@
+@section('title', 'Создать')
 @extends('admin.layout')
 @section('content')
     <div class="page-wrapper">
@@ -33,23 +34,35 @@
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
                                 <div class="form-wrap">
-                                    <form method="post" action="{{route('admin.category.store')}}">
+                                    <form method="post" action="{{route('admin.category.store')}}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
+                                            @error('name')
+                                            {{$message}}
+                                            @enderror
                                             <label class="control-label mb-10 text-left">name</label>
                                             <input type="text" class="form-control" name="name">
                                         </div>
                                         <div class="form-group">
+                                            @error('code')
+                                            {{$message}}
+                                            @enderror
                                             <label class="control-label mb-10 text-left" for="example-email">code</label>
                                             <input type="text" id="example-email" name="code" class="form-control" placeholder="Email">
                                         </div>
                                         <div class="form-group">
+                                            @error('description')
+                                            {{$message}}
+                                            @enderror
                                             <label class="control-label mb-10 text-left" for="example-email">description</label>
                                             <input type="text" id="example-email" name="description" class="form-control" placeholder="Email">
                                         </div>
                                         <div class="form-group">
+                                            @error('image')
+                                            {{$message}}
+                                            @enderror
                                             <label class="control-label mb-10 text-left" for="example-email">image</label>
-                                            <input type="text" id="example-email" name="image" class="form-control" placeholder="Email">
+                                            <input type="file" id="example-email" name="image" class="form-control" placeholder="Email">
                                         </div>
                                         <button  class="btn btn-success btn-anim"><i class="icon-rocket"></i><span class="btn-text">submit</span></button>
 

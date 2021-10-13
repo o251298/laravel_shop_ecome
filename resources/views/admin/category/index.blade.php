@@ -1,3 +1,4 @@
+@section('title', 'Категория')
 @extends('admin.layout')
 @section('content')
     <div class="page-wrapper">
@@ -43,6 +44,7 @@
                                             создать
                                         </code>
                                         </a> in table tag.</p>
+                                <a href="{{route('admin.category.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка</a>
                                 <div class="table-wrap mt-40">
                                     <div class="table-responsive">
                                         <table class="table mb-0">

@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Category;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class CategoryObserver
 {
@@ -16,7 +17,8 @@ class CategoryObserver
     public function created(Category $category)
     {
         Cache::forget('category');
-        Category::cacheCategory();
+        $category = Category::cacheCategory();
+        Log::channel('category')->info($category);
     }
 
     /**
