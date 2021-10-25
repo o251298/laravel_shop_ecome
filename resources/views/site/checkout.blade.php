@@ -6,11 +6,12 @@ use Illuminate\Support\Facades\Auth;
 @section('content')
     <div class="main-content space1">
         <div class="container container-240">
+            @isset($productInOrder)
             <ul class="breadcrumb">
                 <li><a href="#">Home</a></li>
                 <li class="active">Cart</li>
             </ul>
-            @isset($productInOrder)
+
 {{--            <div class="co-coupon">--}}
 {{--                <div class="row">--}}
 {{--                    <div class="checkout-login col-xs-12 col-sm-6">--}}
@@ -184,6 +185,20 @@ use Illuminate\Support\Facades\Auth;
                 </div>
             </form>
         </div>
+
+
+        @endisset
+
+    @if($productInOrder == null)
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="shopping-cart bd-7">
+                    <div class="table-responsive">
+                        <h3 style="margin-top: 50px; margin-bottom: 50px; margin-left: 10px">Корзина пустая</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     </div>
-    @endisset
 @endsection

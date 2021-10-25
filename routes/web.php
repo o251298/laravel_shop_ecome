@@ -17,17 +17,26 @@ use App\Http\Controllers\Admin\AdminProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [MainController::class, 'index'])->name('shop');
-Route::get('category/{id}', [MainController::class, 'category'])->name('category');
-Route::get('view/{id}', [MainController::class, 'view'])->name('view');
-Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
-Route::post('order_store', [OrderController::class, 'order_store'])->name('order_store');
-Route::get('cart', [OrderController::class, 'index'])->name('cart');
-Route::get('add_to_cart/{id}', [OrderController::class, 'addProductToCart'])->name('addProductToCart');
-Route::get('logout', [LoginController::class, 'logout'])->name('get_logout');
-Route::get('quick_view_cart', [OrderController::class, 'quickViewCart'])->name('quickViewCart');
-Route::get('clear_cart', [OrderController::class, 'clearCart'])->name('clear_cart');
-Route::get('user_import', [OrderController::class, 'import'])->name('user_import');
+Route::group([
+    'middleware'  => 'local'
+], function (){
+    Route::get('/', [MainController::class, 'index'])->name('shop');
+    Route::post('local', [MainController::class, 'local'])->name('local');
+    Route::get('search', [MainController::class, 'search'])->name('search');
+    Route::get('category/{id}', [MainController::class, 'category'])->name('category');
+    Route::get('view/{id}', [MainController::class, 'view'])->name('view');
+    Route::get('checkout', [OrderController::class, 'checkout'])->middleware('checkout')->name('checkout');
+    Route::post('order_store', [OrderController::class, 'order_store'])->name('order_store');
+    Route::get('cart', [OrderController::class, 'index'])->name('cart');
+    Route::get('add_to_cart/{id}', [OrderController::class, 'addProductToCart'])->name('addProductToCart');
+    Route::get('logout', [LoginController::class, 'logout'])->name('get_logout');
+    Route::get('quick_view_cart', [OrderController::class, 'quickViewCart'])->name('quickViewCart');
+    Route::get('clear_cart', [OrderController::class, 'clearCart'])->name('clear_cart');
+    Route::get('user_import', [OrderController::class, 'import'])->name('user_import');
+    Route::get('orders/{id}', [OrderController::class, 'view'])->name('order.view')->middleware('auth');
+});
+
+
 
 Route::group([
     'middleware' => ['auth', 'admin'],
@@ -49,8 +58,8 @@ Route::group([
     Route::get('product', [AdminProductController::class, 'index'])->name('admin.product');
     Route::post('product/store', [AdminProductController::class, 'store'])->name('admin.product.store');
     Route::get('product/{id}', [AdminProductController::class, 'show'])->name('admin.product.show');
+    Route::put('product/update/{product}', [AdminProductController::class, 'update'])->name('admin.product.update');
     Route::get('product/delete/{product}', [AdminProductController::class, 'destroy'])->name('admin.product.delete');
-
 });
 
 

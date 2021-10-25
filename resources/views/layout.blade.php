@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>@yield('title', 'Магазин')</title>
     <link rel="stylesheet" href="{{asset('/assets/' . 'css/owl.carousel.min.css')}}">
     <link rel="shortcut icon" href="img/favicon.png" type="image/png">
@@ -59,8 +59,10 @@
                             <a href="#">Categories</a>
                             <ul class="menu-level-2">
                                 <li class="level3"><a href="cat_fullwidth.html" title="">Categories Full Width</a></li>
-                                <li class="level3"><a href="cat_left_sidebar.html" title="">Categories Left Sidebar</a></li>
-                                <li class="level3"><a href="cat_right_sidebar.html" title="">Categories Right Sidebar</a></li>
+                                <li class="level3"><a href="cat_left_sidebar.html" title="">Categories Left Sidebar</a>
+                                </li>
+                                <li class="level3"><a href="cat_right_sidebar.html" title="">Categories Right
+                                        Sidebar</a></li>
                             </ul>
                         </li>
                         <li class="level2">
@@ -83,7 +85,8 @@
                             <ul class="menu-level-2">
                                 <li class="level3"><a href="product_extended.html" title="">Product Extended</a></li>
                                 <li class="level3"><a href="product_sidebar.html" title="">Product Left Sidebar</a></li>
-                                <li class="level3"><a href="product_right_sidebar.html" title="">Product Right Sideba</a></li>
+                                <li class="level3"><a href="product_right_sidebar.html" title="">Product Right
+                                        Sideba</a></li>
                             </ul>
                         </li>
                         <li class="level2">
@@ -117,12 +120,6 @@
             <li class="level1">
                 <a href="#">Blog</a>
                 <span class="icon-sub-menu"></span>
-                <ul class="menu-level1 js-open-menu">
-                    <li class="level2"><a href="blog-standar.html" title="Blog Standar">Blog Standar</a></li>
-                    <li class="level2"><a href="blog_grid.html" title="Blog Gird">Blog Gird</a></li>
-                    <li class="level2"><a href="blog-standar.html" title="Blog Sidebar">Blog Sidebar</a></li>
-                    <li class="level2"><a href="blog-single-post.html" title="Blog Single Post">Blog Single Post</a></li>
-                </ul>
             </li>
         </ul>
     </div>
@@ -130,16 +127,14 @@
 <!-- end push menu-->
 <div class="wrappage">
     <header id="header" class="header-v5">
-        <div class="header-top-banner">
-            <a href="#"><img src="{{asset('/assets/img/banner-top.jpg')}}" alt="" class="img-reponsive"></a>
-        </div>
         <div class="topbar">
             <div class="container container-240">
                 <div class="row flex">
                     <div class="col-md-6 col-sm-6 col-xs-4 flex-left">
                         <div class="topbar-left">
                             <div class="element element-store hidden-xs hidden-sm">
-                                <a id="label1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a id="label1" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
                                     <img src="{{asset('/assets/img/icon-map.png')}}" alt="">
                                     <span>Store Location</span>
 
@@ -161,44 +156,29 @@
                     <div class="col-md-6 col-sm-6 col-xs-8 flex-right">
                         <div class="topbar-right">
                             @auth()
-                            <div class="element hidden-xs hidden-sm">
-                                <a href="{{route('get_logout')}}">Выйти</a>
-                            </div>
+                                <div class="element hidden-xs hidden-sm">
+                                    <a href="{{route('get_logout')}}">Выйти</a>
+                                </div>
                             @endauth
-                                @guest()
-                                    <div class="element hidden-xs hidden-sm">
-                                        <a href="{{route('login')}}">Войти</a>
-                                    </div>
-                                @endguest
+                            @guest()
+                                <div class="element hidden-xs hidden-sm">
+                                    <a href="{{route('login')}}">Войти</a>
+                                </div>
+                            @endguest
                             <div class="element hidden-xs hidden-sm">
                                 <a href="#">Help</a>
                             </div>
-                            <div class="element hidden-xs hidden-sm">
-                                <a href="#"><img src="{{asset('/assets/img/icon-phone.png')}}" alt=""><span>Save big on our app!</span></a>
-                            </div>
                             <div class="element element-leaguage">
-                                <a id="label2" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{asset('/assets/img/icon-l.png')}}" alt="">
-                                    <span>English</span>
-                                    <span class="ion-ios-arrow-down f-10 e-arrow"></span>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="label2">
-                                    <li><a href="#">EN</a></li>
-                                    <li><a href="#">DE</a></li>
-                                    <li><a href="#">FR</a></li>
-                                </ul>
-                            </div>
-                            <div class="element element-currency">
-                                <a id="label3" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
-                                    <span>USD</span>
-                                    <span class="ion-ios-arrow-down f-10 e-arrow"></span>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="label3">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">AUD</a></li>
-                                    <li><a href="#">EUR</a></li>
-                                </ul>
+                                <form action="{{route('local')}}" method="post" class="d-flex">
+                                    @csrf
+                                    <select name="local" class="form-select">
+                                        <option value="en">En</option>
+                                        <option value="ru">Ru</option>
+                                    </select>
+                                    <button class="btn btn-warning">
+                                        asdas
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -212,35 +192,19 @@
                         <a href="#"><img src="{{asset('/assets/img/logo.png')}}" alt="" class="img-reponsive"></a>
                     </div>
                     <div class="col-lg-7 col-md-7 v-center header-search hidden-xs hidden-sm">
-                        <form method="get" class="searchform ajax-search" action="/search" role="search">
-                            <input type="hidden" name="type" value="product">
-                            <input type="text" placeholder="...." name="q" class="form-control">
+                        <form method="get" class="searchform ajax-search" action="{{route('search')}}" role="search">
+                            <input type="text" placeholder="@lang('site.index.nav.search')" name="search" value="{{request()->search}}" class="form-control">
                             <div class="search-panel">
-{{--                                <a class="dropdown-toggle" data-toggle="dropdown" href='#'>All categories <span class="fa fa-caret-down"></span></a>--}}
-{{--                                <ul id="category" class="dropdown-menu dropdown-category">--}}
-{{--                                    <li><a href="#">TV & Video</a></li>--}}
-{{--                                    <li><a href="#">Home Audio & Theater</a></li>--}}
-{{--                                    <li><a href="#">Camera, Photo & Video</a></li>--}}
-{{--                                    <li><a href="#">Cell Phones & Accessories</a></li>--}}
-{{--                                    <li><a href="#">Headphones</a></li>--}}
-{{--                                    <li><a href="#">Car Electronics</a></li>--}}
-{{--                                    <li><a href="#">Electronics Showcase</a></li>--}}
-{{--                                </ul>--}}
+
                             </div>
                             <span class="input-group-btn">
-                                          <button class="button_search" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-</svg></button>
-                                </span>
+                                <button class="button_search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </span>
                         </form>
-{{--                        <div class="tags">--}}
-{{--                            <span>Most searched :</span>--}}
-{{--                            <a href="#">umbrella</a>--}}
-{{--                            <a href="#">hair accessories </a>--}}
-{{--                            <a href="#">diamond</a>--}}
-{{--                            <a href="#"> painting slime</a>--}}
-{{--                            <a href="#">sunglasses</a>--}}
-{{--                        </div>--}}
                     </div>
                     <div class="col-lg-3  col-md-3 col-sm-6 col-xs-6 v-center header-sub">
                         <div class="right-panel">
@@ -249,17 +213,19 @@
                                     <img src="img/icon-call.png" alt="">
                                 </div>
                                 <div class="sub-right">
-                                    <span>Call Us Free</span>
-                                    <div class="phone">(+123) 456 789 </div>
+                                    <span>@lang('site.index.nav.contact')</span>
+                                    <div class="phone">(+123) 456 789</div>
                                 </div>
                             </div>
                             <div class="header-sub-element row">
                                 <a class="hidden-xs hidden-sm" href=""><img src="img/icon-user.png" alt=""></a>
                                 <a href="#"><img src="img/icon-heart.png" alt=""></a>
                                 <div class="cart">
-                                    <a href="{{route('cart')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="label5">
+                                    <a href="{{route('cart')}}" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false" id="label5">
                                         <img src="{{asset('/assets/img/icon-cart.png')}}" alt="">
-                                        <span class="count cart-count" id="cart_count">{{\App\Order::countProductInCart()}}</span>
+                                        <span class="count cart-count"
+                                              id="cart_count">{{\App\Models\Order::countProductInCart()}}</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-cart">
                                         <ul class="mini-products-list" id="mini-products-list">
@@ -267,12 +233,14 @@
                                         </ul>
                                         <div class="bottom-cart">
                                             <div class="cart-price">
-                                                <span>Subtotal</span>
-                                                <span class="price-total">$ 120.00</span>
+                                                <span>@lang('site.cart_details')</span>
+                                                {{--                                                <span class="price-total">$ 120.00</span>--}}
                                             </div>
                                             <div class="button-cart">
-                                                <a href="{{route('cart')}}" class="cart-btn btn-viewcart">View Cart</a>
-                                                <a href="{{route('checkout')}}" class="cart-btn e-checkout btn-gradient">Checkout</a>
+                                                <a href="{{route('cart')}}"
+                                                   class="cart-btn btn-viewcart">@lang('site.cart')</a>
+                                                <a href="{{route('checkout')}}"
+                                                   class="cart-btn e-checkout btn-gradient">@lang('site.checkout')</a>
                                             </div>
                                         </div>
                                     </div>
@@ -300,142 +268,23 @@
                                 </button>
                                 <div class="collapse navbar-collapse" id="myNavbar">
                                     <ul class="nav navbar-nav js-menubar">
-                                        <li class="level1 active hassub"><a href="#">Home</a>
-                                            <span class="plus js-plus-icon"></span>
-                                            <div class="menu-level-1 ver2 dropdown-menu">
-                                                <div class="row">
-                                                    <div class="cate-item col-md-4 col-sm-12">
-                                                        <div class="demo-img">
-                                                            <a href="home1.html">
-                                                                <img src="img/demo/demo1.jpg" alt="" class="img-reponsive">
-
-                                                            </a>
-                                                        </div>
-                                                        <div class="demo-text">Demo 1</div>
-                                                    </div>
-                                                    <div class="cate-item col-md-4 col-sm-12">
-                                                        <div class="demo-img">
-                                                            <a href="home2.html"><img src="img/demo/demo2.jpg" alt="" class="img-reponsive"></a>
-                                                        </div>
-                                                        <div class="demo-text">Demo 2</div>
-                                                    </div>
-                                                    <div class="cate-item col-md-4 col-sm-12">
-                                                        <div class="demo-img">
-                                                            <a href="home3.html"><img src="img/demo/demo3.jpg" alt="" class="img-reponsive"></a>
-                                                        </div>
-                                                        <div class="demo-text">Demo 3</div>
-                                                    </div>
-                                                    <div class="cate-item col-md-4 col-sm-12">
-                                                        <div class="demo-img">
-                                                            <a href="home4.html"><img src="img/demo/demo4.jpg" alt="" class="img-reponsive"></a>
-                                                        </div>
-                                                        <div class="demo-text">Demo 4</div>
-                                                    </div>
-                                                    <div class="cate-item col-md-4 col-sm-12">
-                                                        <div class="demo-img">
-                                                            <a href="home5.html"><img src="img/demo/demo5.jpg" alt="" class="img-reponsive"></a>
-                                                        </div>
-                                                        <div class="demo-text">Demo 5</div>
-                                                    </div>
-                                                    <div class="cate-item col-md-4 col-sm-12">
-                                                        <div class="demo-img">
-                                                            <a href="#"><img src="img/demo/demo6.jpg" alt="" class="img-reponsive"></a>
-                                                            <div class="overlay-img box-center">
-                                                                <a href="#" class="btn-gradient btn-csoon">Coming soon</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="demo-text">Demo 6</div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <li class="level1 active hassub"><a href="#">@lang('site.index.nav.home')</a>
                                         </li>
-                                        <li class="level1 dropdown hassub"><a href="#">Shop<span class="h-ribbon h-pos e-green">sale</span></a>
-                                            <span class="plus js-plus-icon"></span>
-                                            <div class="menu-level-1 dropdown-menu">
-                                                <ul class="level1">
-                                                    <li class="level2 col-4">
-                                                        <a href="#">Shop Layout</a>
-                                                        <ul class="menu-level-2">
-                                                            <li class="level3"><a href="shop_full.html" title="">Shop Full Width</a></li>
-                                                            <li class="level3"><a href="shopgrid_v1.html" title="">Shop Grid v.1</a></li>
-                                                            <li class="level3"><a href="shopgrid_v2.html" title="">Shop Grid v.2</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                            <li class="level3"><a href="shoplist.html" title="">Shop List</a></li>
-                                                            <li class="level3"><a href="shopleft_sidebar.html" title="">Shop Left Sidebar</a></li>
-                                                            <li class="level3"><a href="shopright_sidebar.html" title="">Shop Right Sidebar</a></li>
-                                                        </ul>
-                                                        <a href="#">Categories</a>
-                                                        <ul class="menu-level-2">
-                                                            <li class="level3"><a href="cat_fullwidth.html" title="">Categories Full Width</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                            <li class="level3"><a href="cat_left_sidebar.html" title="">Categories Left Sidebar</a></li>
-                                                            <li class="level3"><a href="cat_right_sidebar.html" title="">Categories Right Sidebar</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="level2 col-4">
-                                                        <a href="# ">Single Product Type</a>
-                                                        <ul class="menu-level-2">
-                                                            <li class="level3"><a href="bundle.html" title="">Bundle</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                            <li class="level3"><a href="pin_product.html" title="">Pin Product</a></li>
-                                                            <li class="level3"><a href="360degree.html" title="">360 Degree</a><span class="h-ribbon v3 e-green h-pos">new</span></li>
-                                                            <li class="level3"><a href="feature_video.html" title="">Featued video</a></li>
-                                                            <li class="level3"><a href="simple.html">Simple</a></li>
-                                                            <li class="level3"><a href="variable.html">Variable</a></li>
-                                                            <li class="level3"><a href="affilate.html">External / Affiliate</a></li>
-                                                            <li class="level3"><a href="grouped.html">Grouped</a></li>
-                                                            <li class="level3"><a href="outofstock.html">Out of stock</a></li>
-                                                            <li class="level3"><a href="onsale.html">On sale</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="level2 col-4">
-                                                        <a href="#">Single Product Layout</a>
-                                                        <ul class="menu-level-2">
-                                                            <li class="level3"><a href="product_extended.html" title="">Product Extended</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                            <li class="level3"><a href="product_sidebar.html" title="">Product Left Sidebar</a></li>
-                                                            <li class="level3"><a href="product_right_sidebar.html" title="">Product Right Sideba</a></li>
-                                                        </ul>
-                                                        <a href="#">Other Pages</a>
-                                                        <ul class="menu-level-2">
-                                                            <li class="level3"><a href="shop_full.html" title="">Shop</a></li>
-                                                            <li class="level3"><a href="cart.html" title="">Cart</a></li>
-                                                            <li class="level3"><a href="wishlist.html" title="">My Wishlist</a></li>
-                                                            <li class="level3"><a href="checkout.html" title="">Checkout</a></li>
-                                                            <li class="level3"><a href="myaccount.html" title="">My Account</a></li>
-                                                            <li class="level3"><a href="track.html" title="">Track Your Order</a></li>
-                                                            <li class="level3"><a href="quickview.html" title="">Quick View</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                                <div class="clearfix"></div>
-                                            </div>
+                                        <li class="level1 dropdown hassub"><a href="#">@lang('site.index.nav.hit')<span
+                                                    class="h-ribbon h-pos e-green">sale</span></a>
                                         </li>
                                         <li class="level1 active dropdown">
-                                            <a href="#">Mega menu</a>
+                                            <a href="#">@lang('site.index.nav.new')</a>
                                         </li>
                                         <li class="level1 active dropdown">
-                                            <a href="#">Pages<span class="h-ribbon h-pos e-skyblue">new</span></a>
-                                            <span class="plus js-plus-icon"></span>
-                                            <ul class="dropdown-menu menu-level-1">
-                                                <li class="level2"><a href="aboutus.html" title="About Us ">About Us </a></li>
-                                                <li class="level2"><a href="contactus.html" title="Contact">Contact</a></li>
-                                                <li class="level2"><a href="faq.html" title="FAQs">FAQs</a></li>
-                                                <li class="level2"><a href="404.html" title="404">404</a></li>
-                                                <li class="level2"><a href="commingsoon.html" title="Coming Soon">Coming Soon</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="level1 active dropdown">
-                                            <a href="#">Blog</a>
-                                            <ul class="dropdown-menu menu-level-1">
-                                                <li class="level2"><a href="blog-standar.html" title="Blog Standar">Blog Standar</a></li>
-                                                <li class="level2"><a href="blog_grid.html" title="Blog Gird">Blog Gird</a></li>
-                                                <li class="level2"><a href="blog-standar.html" title="Blog Sidebar">Blog Sidebar</a></li>
-                                                <li class="level2"><a href="blog-single-post.html" title="Blog Single Post">Blog Single Post</a></li>
-                                            </ul>
+                                            <a href="#">@lang('site.index.nav.blog')</a>
                                         </li>
                                     </ul>
                                 </div>
                             </nav>
                             <div class="header-bottom-right hidden-xs hidden-sm">
                                 <img src="img/icon-ship.png" alt="" class="img-reponsive">
-                                <span>Free Shipping on Orders $100</span>
+                                <span>@lang('site.index.nav.free_deliv')</span>
                             </div>
                         </div>
                     </div>
@@ -444,8 +293,8 @@
         </div>
     </header>
     <!-- /header -->
-        @yield('content')
-    <!-- / end content -->
+@yield('content')
+<!-- / end content -->
     <footer>
         <div class="f-top">
             <div class="container container-240">
@@ -516,7 +365,8 @@
                                 <h3 class="footer-block-title">Subscription</h3>
                                 <p>Register now to get updates on promotions and coupons.</p>
                                 <form class="form_newsletter" action="#" method="post">
-                                    <input type="email" value="" placeholder="Enter your emaill adress" name="EMAIL" id="mail" class="newsletter-input form-control">
+                                    <input type="email" value="" placeholder="Enter your emaill adress" name="EMAIL"
+                                           id="mail" class="newsletter-input form-control">
                                     <button id="subscribe" class="button_mini btn btn-gradient" type="submit">
                                         Subscribe
                                     </button>

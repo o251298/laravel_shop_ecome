@@ -1,10 +1,10 @@
 <?php
-\App\Category::cacheCategory();
+\App\Models\Category::cacheCategory();
 $category = \Illuminate\Support\Facades\Cache::get('category');
 ?>
 <div class="col-lg-3 widget-verticalmenu">
     <div class="navbar-vertical">
-        <button class="navbar-toggles navbar-drop js-vertical-menu"><span>All Departments</span></button>
+        <button class="navbar-toggles navbar-drop js-vertical-menu"><span>@lang('site.index.nav.category')</span></button>
     </div>
     <div class="vertical-wrapper">
         <ul class="vertical-group">

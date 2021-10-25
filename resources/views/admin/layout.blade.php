@@ -19,9 +19,12 @@
     <link href="{{asset('/admin/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
 
     <link href="{{asset('/admin/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/admin/vendors/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/admin/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="{{asset('/admin/dist/css/style.css')}}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -1198,7 +1201,8 @@
 <script src="{{asset('/admin/vendors/bower_components/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('/admin/vendors/bower_components/morris.js/morris.min.js')}}"></script>
 <script src="{{asset('/admin/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js')}}"></script>
-
+<script src="{{asset('/admin/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')}}"></script>
+<script src="{{asset('/admin/vendors/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- Switchery JavaScript -->
 <script src="{{asset('/admin/vendors/bower_components/switchery/dist/switchery.min.js')}}"></script>
 

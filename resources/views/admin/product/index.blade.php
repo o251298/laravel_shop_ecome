@@ -52,10 +52,11 @@
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                                <th>Username</th>
+                                                <th>Товар</th>
+                                                <th>Код товара</th>
+                                                <th>Кол-во товара на складе</th>
+                                                <th>Категория товара</th>
+                                                <th>Дата привоза на склад</th>
                                                 <th>Удалить</th>
                                                 <th>Просмотр</th>
                                             </tr>
@@ -66,6 +67,7 @@
                                                     <td>{{$item->id}}</td>
                                                     <td>{{$item->name}}</td>
                                                     <td>{{$item->code}}</td>
+                                                    <td>{{$item->count}}</td>
                                                     <td>{{$item->category->name}}</td>
                                                     <td>{{$item->created_at}}</td>
                                                     <td><a href="{{route('admin.product.delete', $item->id)}}"><span class="label label-danger">Удалить</span></a></td>

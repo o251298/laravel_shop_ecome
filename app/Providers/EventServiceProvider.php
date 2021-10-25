@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;

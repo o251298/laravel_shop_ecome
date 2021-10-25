@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
-use App\Product;
+use App\Models\Product;
 
 class Order extends Model
 {
@@ -16,6 +16,7 @@ class Order extends Model
     const DELIV_ORDER = 5;
 
     protected $guarded = [];
+
     public static function addProductToCart($id)
     {
         $productsInCart = array();
@@ -31,7 +32,6 @@ class Order extends Model
         return self::countProductInCart();
     }
 
-
     public function SumProductInOrder($price, $count, $coupon = null)
     {
         if ($coupon !== null) {
@@ -41,7 +41,6 @@ class Order extends Model
         }
         return $sum;
     }
-
 
     public static function SumProduct($products, $order, $coupon = null)
     {
@@ -55,7 +54,6 @@ class Order extends Model
             }
             return $sum;
         }
-
     }
 
     public static function getProductFromOrder($order){
@@ -74,7 +72,6 @@ class Order extends Model
         }
         return $order;
     }
-
 
     public function user()
     {
@@ -115,10 +112,10 @@ class Order extends Model
         }
     }
 
-
     public function getStatusStringAttribute(){
         return self::getStatusOrder($this->status);
     }
+
     public static function countProductInCart(){
         $count = 0;
         if (Session::has('order')){
@@ -129,6 +126,7 @@ class Order extends Model
         }
         return $count;
     }
+
     public static function test($email)
     {
         if ($orders = self::where('email', '=', $email)->first()){
@@ -137,4 +135,10 @@ class Order extends Model
             return false;
         }
     }
+
+    public function getProductsToArray(){
+        $products = (array) json_decode($this->products);
+        return $products;
+    }
+
 }

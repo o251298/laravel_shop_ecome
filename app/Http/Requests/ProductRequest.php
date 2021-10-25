@@ -23,14 +23,20 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|max:255|min:3',
-            'category_id' => 'required|max:255|min:3',
-            'code' => 'required|numeric|min:3|max:255',
+            'code' => 'required|numeric',
             'description' => 'required|min:6',
-            'image' => 'required|mimes:jpg,png',
+            'image' => 'mimes:jpg,png',
             'price' => 'required|min:1|max:300',
+            'count' => 'required|min:0|max:300',
         ];
+        if ($this->route()->named('admin.product.store')){
+            $rules['image'] = 'required|mimes:jpg,png';
+            $rules['category_id'] = 'required|max:255|min:1';
+
+        }
+        return  $rules;
     }
 
     public function messages()

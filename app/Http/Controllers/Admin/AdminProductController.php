@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Product;
+use App\Http\Requests\ProductRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use function Composer\Autoload\includeFile;
 
 class AdminProductController extends Controller
 {
@@ -19,7 +21,6 @@ class AdminProductController extends Controller
     public function index()
     {
         $product = Product::paginate(50);
-
         return view('admin.product.index', [
             'product' => $product,
         ]);
@@ -33,8 +34,10 @@ class AdminProductController extends Controller
     public function create()
     {
         $category = Cache::get('category');
+        $array = ['hit' => "HIT", 'new' => "NEW", 'recommend' => "RECOMMEND"];
         return view('admin.product.create', [
-            'category' => $category
+            'category' => $category,
+            'array' => $array,
         ]);
     }
 
@@ -44,10 +47,12 @@ class AdminProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
+
         $path = $request->file('image')->store('products');
         $params = $request->all();
+        $array = ['hit' => "HIT", 'new' => "NEW", 'recommend' => "RECOMMEND"];
         $params['image'] = $path;
         if ($product = Product::create($params)){
             session()->flash('create', 'Вы создали новый товар');
@@ -64,9 +69,13 @@ class AdminProductController extends Controller
      */
     public function show($id)
     {
+        $category = Cache::get('category');
         $product = Product::findOrFail($id);
+        $array = ['hit' => "HIT", 'new' => "NEW", 'recommend' => "RECOMMEND"];
         return view('admin.product.show', [
-            'product' => $product
+            'product' => $product,
+            'array' =>$array,
+            'category' => $category
         ]);
     }
 
@@ -88,9 +97,25 @@ class AdminProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        $params = $request->all();
+        $array = ['hit' => "HIT", 'new' => "NEW", 'recommend' => "RECOMMEND"];
+        foreach ($array as $fieldName => $title){
+            if (!isset($params[$fieldName])){
+                $params[$fieldName] = 0;
+            }
+        }
+        if ($request->image !== null){
+            $path = $request->file('image')->store('product');
+            $params['image'] = $path;
+            $product->update($params);
+        } else {
+            $product->update($params);
+        }
+        session()->flash('update', 'Вы обновили товар');
+        return redirect()->route('admin.product.show', $product->id);
+
     }
 
     /**
@@ -108,6 +133,8 @@ class AdminProductController extends Controller
         session()->flash('success_destroy', 'Товар успешно удален');
         return redirect()->back();
     }
+
+
     public function export(){
         $csv = Product::exportProduct(Product::all());
         $filename = 'products-' . date('Y-m-d') . '-export.csv';

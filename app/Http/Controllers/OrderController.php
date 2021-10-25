@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
-use App\Product;
-use App\User;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -15,12 +15,14 @@ use App\Http\Requests\CheckoutRequest;
 
 class OrderController extends Controller
 {
-    public function addProductToCart($id){
+    public function addProductToCart($id)
+    {
         $order = Order::addProductToCart($id);
         return response()->json($order, Response::HTTP_CREATED);
     }
 
-    public function index(){
+    public function index()
+    {
         $order = Order::getOrderInSession();
         $productInOrder = Order::getProductFromOrder($order);
         $orderSum = new Order();
@@ -50,7 +52,7 @@ class OrderController extends Controller
         $order = Order::getOrderInSession();
         $productsInJSON = json_encode($order);
         $order = Order::create([
-            'name' => $request->firstname . ' '. $request->lastname,
+            'name' => $request->firstname . ' ' . $request->lastname,
             'status' => 0,
             'phone' => $request->phone,
             'email' => $request->email,
@@ -59,13 +61,14 @@ class OrderController extends Controller
         ]);
         $logs = [
             'id' => $order->id,
-            'name' => $request->firstname . ' '. $request->lastname,
+            'name' => $request->firstname . ' ' . $request->lastname,
             'status' => 0,
             'phone' => $request->phone,
             'products' => $productsInJSON,
+            'ip' => $request->ip(),
         ];
-        Log::channel('order')->debug($logs);
-        if ($order){
+        Log::channel('order')->info($logs);
+        if ($order) {
             Session::forget('order');
             session()->flash('success_create_order', 'Заказ создали');
         } else {
@@ -75,7 +78,8 @@ class OrderController extends Controller
         return redirect()->route('shop');
     }
 
-    public function quickViewCart(){
+    public function quickViewCart()
+    {
         $order = Session::get('order');
         $product_in_order = Product::find(array_keys($order));
         return response()->json($product_in_order, '200');
@@ -83,20 +87,43 @@ class OrderController extends Controller
 
     public function clearCart()
     {
-        if (Session::has('order')){
+        if (Session::has('order')) {
             Session::forget('order');
             session()->flash('success_unset_cart', 'Корзина пустая');
         }
         return redirect()->route('shop');
     }
 
-    public function import(){
+    public function import()
+    {
         $user = Auth::user();
         $user->fio = 'test';
         $user->number = 123123;
         $user->save();
-        //dd($user->id);
-
         return redirect()->back();
     }
+
+    public function view($id)
+    {
+        $order = null;
+//         проверка на пользователя заказа
+//        $user_id = Auth::user()->id;
+//        $condition = ['user_id' => $user_id, 'id' => $id];
+//        $order = Order::where($condition)->first();
+//        if (empty($order)){
+//            $order = null;
+//            return redirect()->back();
+//        }
+        if (!Auth::user()->orders->contains($id)) {
+            return redirect()->back();
+        }
+        $order = Order::findOrFail($id);
+        $productsIds = array_keys($order->getProductsToArray());
+        $products = Product::withTrashed()->whereIn('id', $productsIds)->get();
+        return view('site.order', [
+            'order' => $order,
+            'products' => $products
+        ]);
+    }
+
 }

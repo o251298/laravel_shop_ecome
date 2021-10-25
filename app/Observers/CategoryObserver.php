@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 

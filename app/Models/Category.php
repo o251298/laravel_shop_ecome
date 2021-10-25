@@ -1,17 +1,28 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
-class Product extends Model
+class Category extends Model
 {
     protected $guarded = [];
 
-    public function category(){
-        return $this->belongsTo(Category::class);
+    # Кеширование категорий
+    public static function cacheCategory(){
+        if (!Cache::has('category')){
+            $categoryList = self::all();
+            Cache::put('category', $categoryList, 60*60);
+        }
+        return true;
     }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+
     public function getImage(){
         $url_image = '';
         if (Storage::disk('public')->exists($this->image)){
@@ -21,6 +32,7 @@ class Product extends Model
         }
         return $url_image;
     }
+
     // Выгрузка категории
     /*
      * 1 получить данные
@@ -34,14 +46,14 @@ class Product extends Model
      * 9 вернуть функцию
      *
      */
-    public static function exportProduct($table_condition){
+    public static function exportCategory($table_condition){
         $table = $table_condition;
-        $column = array('name', 'code', 'price', 'created_at', 'category_id');
-        $callback = function () use ($table, $column){
+        $colums = array('name', 'code', 'created_at');
+        $callback = function () use ($table, $colums){
             $file = fopen('php://output', 'w');
-            fputcsv($file, $column);
-            foreach ($table as $item){
-                fputcsv($file, array($item->name, $item->code, $item->price, $item->created_at, $item->category_id));
+            fputcsv($file, $colums);
+            foreach ($table as $item) {
+                fputcsv($file, array($item->name, $item->code, $item->created_at));
             };
             fclose($file);
         };
