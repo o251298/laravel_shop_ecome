@@ -59,4 +59,9 @@ class Category extends Model
         };
         return $callback;
     }
+
+    public static function getCategoryForParse(){
+        $category = self::query()->get()->pluck('hash', 'offer_id')->toArray();
+        return $category;
+    }
 }

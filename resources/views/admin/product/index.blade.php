@@ -26,6 +26,11 @@
                 <div class="col-sm-12">
                     <div class="panel panel-default card-view">
                         <div class="panel-heading">
+                            @if(session('parser_message'))
+                                <div class="alert alert-success alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{session('parser_message')}}
+                                </div>
+                            @endif
                             @if(session('success_destroy'))
                                 <div class="alert alert-success alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{session('success_destroy')}}
@@ -68,7 +73,7 @@
                                                     <td>{{$item->name}}</td>
                                                     <td>{{$item->code}}</td>
                                                     <td>{{$item->count}}</td>
-                                                    <td>{{$item->category->name}}</td>
+                                                    <td>@if(isset($item->category->name)){{$item->category->name}} @else Категория не установлена @endif</td>
                                                     <td>{{$item->created_at}}</td>
                                                     <td><a href="{{route('admin.product.delete', $item->id)}}"><span class="label label-danger">Удалить</span></a></td>
                                                     <td><a href="{{route('admin.product.show', $item->id)}}"><span class="label label-primary">Просмотр</span> </a></td>

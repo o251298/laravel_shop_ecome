@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Components\XmlParser;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Xml;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
@@ -21,6 +24,7 @@ class AdminProductController extends Controller
     public function index()
     {
         $product = Product::paginate(50);
+
         return view('admin.product.index', [
             'product' => $product,
         ]);
@@ -144,4 +148,5 @@ class AdminProductController extends Controller
         );
         return response()->stream($csv,200, $headers);
     }
+
 }

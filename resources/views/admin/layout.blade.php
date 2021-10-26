@@ -39,7 +39,7 @@
         <div class="mobile-only-brand pull-left">
             <div class="nav-header pull-left">
                 <div class="logo-wrap">
-                    <a href="index.html">
+                    <a href="{{route('admin')}}">
                         <img class="brand-img" src="dist/img/logo.png" alt="brand"/>
                         <span class="brand-text">doodle</span>
                     </a>
@@ -442,16 +442,16 @@
                 <i class="zmdi zmdi-more"></i>
             </li>
             <li>
-                <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">UI Elements</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Управление</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
                 <ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
                     <li>
                         <a href="{{route('admin.category')}}">Категории</a>
                     </li>
                     <li>
-                        <a href="modals.html">Modals</a>
+                        <a href="{{route('xmls')}}">XML листы</a>
                     </li>
                     <li>
-                        <a href="sweetalert.html">Sweet Alerts</a>
+                        <a href="{{route('admin.product')}}">Продукты</a>
                     </li>
                     <li>
                         <a href="notifications.html">notifications</a>

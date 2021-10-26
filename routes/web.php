@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\ParserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,13 +37,15 @@ Route::group([
     Route::get('orders/{id}', [OrderController::class, 'view'])->name('order.view')->middleware('auth');
 });
 
+Route::get('administration', [AdminController::class, 'index'])->name('admin')->middleware(['auth', 'admin']);
 
 
 Route::group([
     'middleware' => ['auth', 'admin'],
     'prefix' => 'admin'
 ], function (){
-    Route::get('main', [AdminController::class, 'index'])->name('admin');
+    Route::get('xmls', [ParserController::class, 'index'])->name('xmls');
+    Route::get('parse/{link}', [AdminController::class, 'parse'])->name('parse');
     Route::get('category', [CategoryController::class, 'index'])->name('admin.category');
     Route::get('category/csv', [CategoryController::class, 'export'])->name('admin.category.csv');
     Route::get('category/create', [CategoryController::class, 'create'])->name('admin.category.create');

@@ -58,6 +58,24 @@ return [
             'level' => 'debug',
         ],
 
+        'parser_product' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/parser_product/' . date('Y-m-d') .'/product_from_xml.log'),
+            'level' => 'debug',
+        ],
+
+        'parser_category' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/parser_category/' . date('Y-m-d') .'/category_from_xml.log'),
+            'level' => 'debug',
+        ],
+
+        'parser_xml' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/parser_xml/' . date('Y-m-d') .'/xml.log'),
+            'level' => 'debug',
+        ],
+
         'category' => [
             'driver' => 'single',
             'path' => storage_path('logs/category/' . date('Y-m-d') .'/category.log'),

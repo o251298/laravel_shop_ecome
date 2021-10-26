@@ -103,7 +103,10 @@ class Product extends Model
         return $query->orWhere('recommend', 1);
     }
 
-
+    public static function getProductForParse(){
+        $products = self::query()->get()->pluck('hash', 'offer_id')->toArray();
+        return $products;
+    }
 
 
 }
