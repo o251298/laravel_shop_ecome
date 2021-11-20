@@ -14,7 +14,7 @@ class MainController extends Controller
     public function index(ProductFilterRequest $request)
     {
         Category::cacheCategory();
-        $productsQuery = Product::with('category');
+        $productsQuery = Product::has('category');
         if ($request->filled('max') && $request->filled('max') !== false){
             $productsQuery->where('price', '<=', $request->max);
         }
@@ -52,8 +52,20 @@ class MainController extends Controller
         ]);
     }
 
-    public function local(Request $request){
-        session(['my_local' => $request->input('local')]);
+//    public function local(Request $request){
+//        session(['my_local' => $request->input('local')]);
+//        return redirect()->back();
+//    }
+
+    public function local($lang){
+        $lang = strtolower($lang);
+
+        if(($lang === 'ru') || ($lang === 'en')){
+            $lang = $lang;
+        } else {
+            $lang = 'en';
+        }
+        session(['my_local' => $lang]);
         return redirect()->back();
     }
 

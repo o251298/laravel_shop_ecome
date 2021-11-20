@@ -18,18 +18,26 @@
                     <div class="blog-content  col-md-9  col-xs-12">
                         <div class="blog-comment">
                             <div class="blog-comment-top">
+                                @if(session('success'))
+                                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                                        <div>
+                                            {{session('success')}}
+                                        </div>
+                                    </div>
+                                @endif
                                 <div class="blog-comment-item">
                                     <div class="cmt-img">
                                         <img src="img/blog/author1.jpg" alt="">
                                     </div>
                                     <div class="cmt-content">
+
                                         <div class="wrp-name"><span class="name">{{$user->name}}</span></div>
                                         <ul>
                                             <li><strong>Заказы:</strong> {{$user->orders->count()}}</li>
                                             <li><strong>Ваша почта:</strong><i> {{$user->email}}</i></li>
                                             <li><strong>Дата регистрации:</strong> <i> {{$user->created_at}}</i></li>
                                         </ul>
-                                        <a href="#" class="btn-author">Изменить профиль</a>
+                                        <a href="{{route('user.edit')}}" class="btn-author">Изменить профиль</a>
                                     </div>
                                 </div>
                             </div>
@@ -51,6 +59,7 @@
                                                     <th scope="col">Ваше имя</th>
                                                     <th scope="col">Ваш телефон</th>
                                                     <th scope="col">Дата создания</th>
+                                                    <th scope="col">Отменить заказ</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -63,6 +72,9 @@
                                                         <td>{{$order->name}}</td>
                                                         <td>{{$order->phone}}</td>
                                                         <td>{{$order->created_at}}</td>
+                                                        @if(!$order->status == \App\Models\Order::CANCEL_ORDER)
+                                                        <td><a href="{{route('order.cancelOrder', $order->id)}}">Отменить</a></td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

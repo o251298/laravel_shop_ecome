@@ -19,23 +19,47 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79ff8eeb-95df-4d6c-aa84-569ea78fa393" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Components/XmlParser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/parser/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4ad7c6b-99c2-4617-b5ef-efcf65c2389d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4ad7c6b-99c2-4617-b5ef-efcf65c2389d.xml" afterDir="false" />
+    <list default="true" id="2bebd189-2f24-45d7-974e-08964e503c04" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Components/LiqPay.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Components/NovaPoshtaDelivery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Components/WeatherRecommendProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/liqpay.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/dist/js/buttons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/delivery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/checkout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/checkout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/select_category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/site/pay.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4ad7c6b-99c2-4617-b5ef-efcf65c2389d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4ad7c6b-99c2-4617-b5ef-efcf65c2389d/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CheckoutRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CheckoutRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/auto.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/db/auto.cnf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ecome/categories.frm" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/categories.frm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ecome/categories.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/categories.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ecome/jobs.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/jobs.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ecome/migrations.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/migrations.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/ecome/products.frm" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/products.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ecome/orders.frm" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/orders.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ecome/orders.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/orders.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ecome/products.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/products.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ecome/users.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/ecome/users.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/db/ib_buffer_pool" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/db/ib_logfile0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db/ibdata1" afterDir="false" />
@@ -47,8 +71,24 @@
       <change beforePath="$PROJECT_DIR$/db_test/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/db_test/ib_logfile0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_test/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db_test/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_test/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/db_test/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/parser/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/parser/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/items/category_widgets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/items/category_widgets.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/items/filter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/items/filter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/items/listCategory.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/items/listCategory.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/order.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,63 +105,31 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/php-parallel-lint/php-console-color" />
       <path value="$PROJECT_DIR$/vendor/php-parallel-lint/php-console-highlighter" />
@@ -129,34 +137,66 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
-      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1zPSMoiu28AJXMQMrkWvBSE5p3a" />
+  <component name="ProjectId" id="20o2N5q0zCj9au7vzPHIKt2ZzSJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -165,15 +205,13 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/site" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/site" />
     </key>
   </component>
   <component name="RunManager">
@@ -187,20 +225,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="79ff8eeb-95df-4d6c-aa84-569ea78fa393" name="Default Changelist" comment="" />
-      <created>1634048184219</created>
+      <changelist id="2bebd189-2f24-45d7-974e-08964e503c04" name="Default Changelist" comment="" />
+      <created>1636696578204</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1634048184219</updated>
-      <workItem from="1634048186739" duration="5410000" />
-      <workItem from="1634109158067" duration="12373000" />
-      <workItem from="1634194176910" duration="26081000" />
-      <workItem from="1634242548504" duration="5398000" />
-      <workItem from="1634760072884" duration="5680000" />
-      <workItem from="1635071987301" duration="8077000" />
-      <workItem from="1635083720126" duration="5994000" />
-      <workItem from="1635162066676" duration="18827000" />
-      <workItem from="1635238591201" duration="13719000" />
+      <updated>1636696578204</updated>
+      <workItem from="1636696591620" duration="534000" />
+      <workItem from="1636699504282" duration="19172000" />
+      <workItem from="1636738143753" duration="28143000" />
+      <workItem from="1637089841681" duration="1527000" />
+      <workItem from="1637169353807" duration="4264000" />
+      <workItem from="1637389776752" duration="6397000" />
     </task>
     <servers />
   </component>
@@ -220,76 +255,49 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="555" y="183" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1635176325210">
+    <state x="913" y="180" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1636710053775">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="913" y="180" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1636710053775" />
+    <state x="693" y="279" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1636959143033">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="693" y="279" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1636959143033" />
+    <state width="1291" height="275" key="GridCell.Tab.0.bottom" timestamp="1637169366607">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="183" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1635176325210" />
-    <state x="693" y="279" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1635257921479">
+    <state width="1291" height="275" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1637169366607" />
+    <state width="1291" height="275" key="GridCell.Tab.0.center" timestamp="1637169366607">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="693" y="279" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1635257921479" />
-    <state width="1291" height="304" key="GridCell.Tab.0.bottom" timestamp="1635257604663">
+    <state width="1291" height="275" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1637169366607" />
+    <state width="1291" height="275" key="GridCell.Tab.0.left" timestamp="1637169366606">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1291" height="304" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1635257604663" />
-    <state width="1291" height="304" key="GridCell.Tab.0.center" timestamp="1635257604662">
+    <state width="1291" height="275" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1637169366606" />
+    <state width="1291" height="275" key="GridCell.Tab.0.right" timestamp="1637169366607">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1291" height="304" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1635257604662" />
-    <state width="1291" height="304" key="GridCell.Tab.0.left" timestamp="1635257604662">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1291" height="275" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1637169366607" />
+    <state x="670" y="241" width="569" height="568" key="NewPhpClassDialog" timestamp="1636995010361">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1291" height="304" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1635257604662" />
-    <state width="1291" height="304" key="GridCell.Tab.0.right" timestamp="1635257604663">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="670" y="241" width="569" height="568" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1636995010361" />
+    <state x="755" y="447" width="399" height="156" key="NewPhpFileDialog" timestamp="1636995082618">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1291" height="304" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1635257604663" />
-    <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1634051331683">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="755" y="447" width="399" height="156" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1636995082618" />
+    <state x="624" y="236" key="run.anything.popup" timestamp="1636968699023">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="263" height="500" key="HiddenNamespacesPopup/0.27.1920.1053@0.27.1920.1053" timestamp="1634051331683" />
-    <state x="670" y="241" width="569" height="568" key="NewPhpClassDialog" timestamp="1635162661735">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="624" y="236" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1636968699023" />
+    <state x="623" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1637394649747">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="670" y="241" width="569" height="568" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1635162661735" />
-    <state x="755" y="447" width="399" height="156" key="NewPhpFileDialog" timestamp="1635258481917">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="623" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1637394649747" />
+    <state x="685" y="435" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1636721166942">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="755" y="447" width="399" height="156" key="NewPhpFileDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1635258481917" />
-    <state x="449" y="156" width="1022" height="737" key="SettingsEditor" timestamp="1635083653400">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="449" y="156" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1635083653400" />
-    <state x="693" y="329" width="524" height="391" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1635194803909">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="693" y="329" width="524" height="391" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1635194803909" />
-    <state x="624" y="236" key="run.anything.popup" timestamp="1634136337930">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="624" y="236" key="run.anything.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1634136337930" />
-    <state x="623" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1635259392611">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="623" y="211" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1635259392611" />
-    <state x="685" y="435" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1635254757047">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="685" y="435" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1635254757047" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/layout.blade.php</url>
-          <line>169</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Jobs/SaveProduct.php</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="685" y="435" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1636721166942" />
   </component>
 </project>

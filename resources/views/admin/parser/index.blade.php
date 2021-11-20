@@ -1,4 +1,4 @@
-@section('title', 'Товары')
+@section('title', 'SPLITTER | XMLS')
 @extends('admin.layout')
 @section('content')
     <div class="page-wrapper">
@@ -7,14 +7,13 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">basic table</h5>
+                    <h5 class="txt-dark">Добро пожаловать в SPLITTER</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Dashboard</a></li>
-                        <li><a href="#"><span>table</span></a></li>
-                        <li class="active"><span>basic table</span></li>
+                        <li><a href="{{route('admin')}}">Главная</a></li>
+                        <li class="active"><span>SPLITTER</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -37,13 +36,19 @@
                                 </div>
                             @endif
                             <div class="pull-left">
-                                <h6 class="panel-title txt-dark">Basic Table</h6>
+                                <h6 class="panel-title txt-dark">Xml-list</h6>
+                                <p class="text-muted">
+
+                                    Тут Вы можете загрузить xml файл, после чего выполнить парсинг данного файла <br>
+                                    Приокончании парсинга файла Вас будет перенаправлено на страницу с списком товаров, которые нужно отфильтровать по категории и принять их<br>
+
+                                </p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <p class="text-muted">Add class <a href="{{route('admin.product.create')}}">
+                                <p class="text-muted">Add class <a href="#">
                                         <code>
                                             создать
                                         </code>
@@ -56,13 +61,11 @@
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Товар</th>
-                                                <th>Код товара</th>
-                                                <th>Кол-во товара на складе</th>
-                                                <th>Категория товара</th>
-                                                <th>Дата привоза на склад</th>
-                                                <th>Удалить</th>
+                                                <th>Хеш прайса</th>
+                                                <th>Название</th>
+                                                <th>Дата создания</th>
                                                 <th>Просмотр</th>
+                                                <th>Удалить</th>
                                             </tr>
                                             </thead>
                                             <tbody>

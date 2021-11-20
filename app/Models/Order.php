@@ -14,21 +14,25 @@ class Order extends Model
     const ACTIVE_ORDER = 3;
     const SEND_ORDER = 4;
     const DELIV_ORDER = 5;
+    const CANCEL_ORDER = 6;
 
     protected $guarded = [];
 
     public static function addProductToCart($id)
     {
-        $productsInCart = array();
-        if (Session::has('order')) {
-            $productsInCart = Session::get('order');
+        $product = \App\Models\Product::findOrFail($id);
+        if ($product->isAvailable()){
+            $productsInCart = array();
+            if (Session::has('order')) {
+                $productsInCart = Session::get('order');
+            }
+            if (array_key_exists($id, $productsInCart)) {
+                $productsInCart[$id]++;
+            } else {
+                $productsInCart[$id] = 1;
+            }
+            Session::put('order', $productsInCart);
         }
-        if (array_key_exists($id, $productsInCart)) {
-            $productsInCart[$id]++;
-        } else {
-            $productsInCart[$id] = 1;
-        }
-        Session::put('order', $productsInCart);
         return self::countProductInCart();
     }
 
@@ -92,6 +96,8 @@ class Order extends Model
             return $statusInString = 'Заказ отправленный';
         } elseif ($status == self::DELIV_ORDER){
             return $statusInString = 'Заказ доставленный';
+        } elseif ($status == self::CANCEL_ORDER){
+            return $statusInString = 'Заказ отменен';
         }
     }
 
@@ -140,5 +146,15 @@ class Order extends Model
         $products = (array) json_decode($this->products);
         return $products;
     }
+    public function delivery_department(){
+        return $this->hasOne(Delivery::class);
+    }
+
+    public static function getOrderByHash($hash){
+        $orderQuery = self::query();
+        $order = $orderQuery->where('hash', '=', $hash)->first();
+        return $order;
+    }
+
 
 }

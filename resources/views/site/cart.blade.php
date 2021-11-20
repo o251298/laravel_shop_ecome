@@ -46,7 +46,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <a href="{{route('clear_cart')}}">Очистить</a>
+                            <a href="{{route('order.clearCart')}}">Очистить</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                             </table>
                         </div>
                         <div class="cart-total-bottom">
-                            <a href="{{route('checkout')}}" class="btn-gradient btn-checkout">Перейти в чекаут</a>
+                            <a href="{{route('order.checkout')}}" class="btn-gradient btn-checkout">Перейти в чекаут</a>
                         </div>
                         <div class="sign-in-divider">
                             <span>or</span>

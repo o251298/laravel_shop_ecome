@@ -10,9 +10,9 @@ class Product extends Model
 {
     use SoftDeletes;
     protected $guarded = [];
-
     protected $table = 'products';
 
+    const ACTIVE = 1;
     public function category(){
         return $this->belongsTo(Category::class);
     }
@@ -107,6 +107,30 @@ class Product extends Model
         $products = self::query()->get()->pluck('hash', 'offer_id')->toArray();
         return $products;
     }
+    public function scopeUnactive($query){
+        return $query->where('show', '<>', 1);
+    }
+    public function scopeAvailable($query){
+        return $query->where('count', '>', 0);
+    }
+    public function scopeUnavailable($query){
+        return $query->where('count', '=', 0);
+    }
 
+    /*
+     * АКТИВАЦИЯ ТОВАРОВ
+     *
+     * Новые товары
+     * Обновленные
+     * Активные
+     * Неактивные
+     *
+     * Создать вкладки сообветствующие статусам товаров, дать возможность фильровать по категории в прайсе
+     * Для привязки выбераем все товары одной категории и выбераем категорию в какую нужно привязать
+     * при этом у товара меняется категория Магазина, а категория с прайса остается, после привязки, товар уходит в активные
+     *
+     *
+     *
+     */
 
 }

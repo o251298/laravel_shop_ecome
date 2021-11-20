@@ -7,14 +7,14 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">form element</h5>
+                    <h5 class="txt-dark">Просмотр товар</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Dashboard</a></li>
-                        <li><a href="#"><span>form</span></a></li>
-                        <li class="active"><span>form-element</span></li>
+                        <li><a href="{{route('admin')}}">Главная</a></li>
+                        <li><a href="{{route('admin.product')}}"><span>Товары</span></a></li>
+                        <li class="active"><span>{{$product->name}}</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -27,7 +27,7 @@
                     <div class="panel panel-default card-view">
                         <div class="panel-heading">
                             <div class="pull-left">
-                                <h6 class="panel-title txt-dark">Basic Form</h6>
+                                <p>Вы можете просмотреть или изменить товар</p>
                                 @if(session('create'))
                                     <div class="alert alert-success alert-dismissable">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{session('create')}}
@@ -52,14 +52,14 @@
                                             @error('name')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left">name</label>
+                                            <label class="control-label mb-10 text-left">Название товара</label>
                                             <input type="text" class="form-control" name="name" value="{{$product->name}}">
                                         </div>
                                         <div class="form-group">
                                             @error('code')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left" for="example-email">code</label>
+                                            <label class="control-label mb-10 text-left" for="example-email">Код товара</label>
                                             <input type="text" id="example-email" name="code" value="{{$product->code}}" class="form-control" placeholder="Email">
                                         </div>
 
@@ -67,10 +67,14 @@
                                             @error('category_id')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left">select</label>
+                                            <label class="control-label mb-10 text-left">Выберите категорию товара</label>
+                                            @if(!isset($product->category->id))
+                                            <p>Категория не уставлена, Вы можете установить ее в ручную!</p>
+                                            @endif
                                             <select class="form-control" name="category_id">
+
                                                 @foreach($category as $categ)
-                                                    <option value="{{$categ->id}}" @if($product->category->id == $categ->id) ? selected="selected" : disabled @endif>{{$categ->name}}</option>
+                                                    <option value="{{$categ->id}}" @if(isset($product->category->id) &&($product->category->id == $categ->id)) ? selected="selected" : disabled @endif>{{$categ->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -79,35 +83,35 @@
                                             @error('description')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left" for="example-email">description</label>
+                                            <label class="control-label mb-10 text-left" for="example-email">Описание товара</label>
                                             <input type="text" id="example-email" value="{{$product->description}}" name="description" class="form-control" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             @error('image')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left" for="example-email">image</label>
+                                            <label class="control-label mb-10 text-left" for="example-email">Изображение</label>
                                             <input type="file" id="example-email" name="image" class="form-control" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             @error('price')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left" for="example-email">price</label>
+                                            <label class="control-label mb-10 text-left" for="example-email">Цена товара</label>
                                             <input type="text" id="example-email" value="{{$product->price}}" name="price" class="form-control" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             @error('count')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left" for="example-email">count</label>
+                                            <label class="control-label mb-10 text-left" for="example-email">Количество</label>
                                             <input type="text" id="example-email" name="count" value="{{$product->count}}" class="form-control" placeholder="count">
                                         </div>
                                         <div class="form-group mb-30">
                                             @error('name')
                                             {{$message}}
                                             @enderror
-                                            <label class="control-label mb-10 text-left">Checkbox</label>
+                                            <label class="control-label mb-10 text-left">Особенности</label>
                                             @foreach($array as $filed => $title)
                                                 <div class="checkbox checkbox-success">
                                                     <input id="checkbox3" name="{{$filed}}" type="checkbox" @if ($product->$filed === 1) checked="checked" @endif >
@@ -126,7 +130,7 @@
                     </div>
                 </div>
             </div>
-            <img src="{{$product->getImage()}}" alt="">
+            <img style="height: 300px" src="{{$product->getImage()}}" alt="">
             <!-- /Row -->
 
         </div>

@@ -9,7 +9,7 @@
     <meta name="author" content="hencework"/>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('/assets/favicon.ico') }}">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Morris Charts CSS -->
@@ -454,49 +454,7 @@
                         <a href="{{route('admin.product')}}">Продукты</a>
                     </li>
                     <li>
-                        <a href="notifications.html">notifications</a>
-                    </li>
-                    <li>
-                        <a href="typography.html">Typography</a>
-                    </li>
-                    <li>
-                        <a href="buttons.html">Buttons</a>
-                    </li>
-                    <li>
-                        <a href="accordion-toggle.html">Accordion / Toggles</a>
-                    </li>
-                    <li>
-                        <a href="tabs.html">Tabs</a>
-                    </li>
-                    <li>
-                        <a href="progressbars.html">Progress bars</a>
-                    </li>
-                    <li>
-                        <a href="skills-counter.html">Skills & Counters</a>
-                    </li>
-                    <li>
-                        <a href="pricing.html">Pricing Tables</a>
-                    </li>
-                    <li>
-                        <a href="nestable.html">Nestables</a>
-                    </li>
-                    <li>
-                        <a href="dorpdown.html">Dropdowns</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-treeview.html">Tree View</a>
-                    </li>
-                    <li>
-                        <a href="carousel.html">Carousel</a>
-                    </li>
-                    <li>
-                        <a href="range-slider.html">Range Slider</a>
-                    </li>
-                    <li>
-                        <a href="grid-styles.html">Grid</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-ui.html">Bootstrap UI</a>
+                        <a href="{{route('admin.product.select_category')}}">Поменять категорию товарам</a>
                     </li>
                 </ul>
             </li>
@@ -1166,6 +1124,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('/admin/vendors/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('/admin/dist/js/buttons.js')}}"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{asset('/admin/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -1209,6 +1168,7 @@
 <!-- Init JavaScript -->
 <script src="{{asset('/admin/dist/js/init.js')}}"></script>
 <script src="{{asset('/admin/dist/js/dashboard-data.js')}}"></script>
+
 </body>
 
 </html>

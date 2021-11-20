@@ -58,6 +58,13 @@ return [
             'level' => 'debug',
         ],
 
+        'product_update_status' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/product/' . date('Y-m-d') .'/product_update_status.log'),
+            'level' => 'debug',
+        ],
+
+
         'parser_product' => [
             'driver' => 'single',
             'path' => storage_path('logs/parser_product/' . date('Y-m-d') .'/product_from_xml.log'),

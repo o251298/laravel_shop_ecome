@@ -51,44 +51,65 @@ use Illuminate\Support\Facades\Auth;
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <form name="checkout" method="post" class="co" action="{{route('order_store')}}">
+            <form name="checkout" method="post" id="form" class="co" action="{{route('order.orderStore')}}">
                 @csrf
                 <div class="cart-box-container-ver2">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="co-left bd-7">
                                 <div class="cmt-title text-center abs">
-                                    <h1 class="page-title v1">Billing details</h1>
+                                    <h1 class="page-title v1">@lang('checkout.data_delivery.contact_data')</h1>
                                 </div>
                                 <div class="row form-customer">
                                     <div class="form-group col-md-6">
-                                        <label for="inputfname_2" class=" control-label">First Name <span class="f-red">*</span></label>
+                                        <label for="inputfname_2" class=" control-label">@lang('checkout.data_delivery.fn')<span class="f-red">*</span></label>
                                         @error('firstname')
                                         {{$message}}
                                         @enderror
                                         <input type="text" name="firstname" id="inputfname_2" class="form-control form-account">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputlname" class=" control-label">Last Name <span class="f-red">*</span></label>
+                                        <label for="inputlname" class=" control-label">@lang('checkout.data_delivery.ln')<span class="f-red">*</span></label>
                                         @error('lastname')
                                         {{$message}}
                                         @enderror
                                         <input type="text" name="lastname" id="inputlname" class="form-control form-account">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputphone" class=" control-label">Phone <span class="f-red">*</span></label>
+                                        <label for="inputphone" class=" control-label">@lang('checkout.data_delivery.phone')<span class="f-red">*</span></label>
                                         @error('phone')
                                         {{$message}}
                                         @enderror
                                         <input type="text" id="inputphone" name="phone" class="form-control form-account">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputemail" class=" control-label">Email Address <span class="f-red">*</span></label>
+                                        <label for="inputemail" class=" control-label">@lang('checkout.data_delivery.email')<span class="f-red">*</span></label>
                                         @error('email')
                                         {{$message}}
                                         @enderror
                                         <input type="text" id="inputemail" @auth value="{{\Illuminate\Support\Facades\Auth::user()->email}}" placeholder="{{\Illuminate\Support\Facades\Auth::user()->email}}" @endauth name="email" class="form-control form-account">
                                     </div>
+                                    <h4>Доставка:</h4>
+                                    <div>
+                                        <img style="height: 60px" src="https://manufactura.ua/upload/iblock/23c/23c22cc44835b59de045064cf37a1431.jpg" alt="">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputphone" class=" control-label">@lang('checkout.data_delivery.city_delivery')<span class="f-red">*</span></label>
+                                        <input name="present_city" type="text" autocomplete="off" id="country" class="form-control form-account">
+                                    </div>
+
+                                    <div class="form-group col-md-6" id="hidden_delivery_state">
+                                        <label for="inputphone" class=" control-label">@lang('checkout.data_delivery.number_delivery_order')<span class="f-red">*</span></label>
+                                        <select disabled name="description" id="select" class="form-control form-account" style="height: 53px; border-radius: 40px">
+
+                                        </select>
+                                    </div>
+
+
+                                    <input name="delivery_city" type="hidden" id="delivery_city">
+
+
                                 </div>
                             </div>
                         </div>
@@ -96,35 +117,31 @@ use Illuminate\Support\Facades\Auth;
                         <div class="col-md-4">
                             <div class="cart-total bd-7">
                                 <div class="cmt-title text-center abs">
-                                    <h1 class="page-title v3">Your order</h1>
+                                    <h1 class="page-title v3">@lang('checkout.date_order.your_order')</h1>
                                 </div>
                                 <div class="table-responsive">
                                     <div class="co-pd">
                                         <p class="co-title">
-                                            Product<span>Total</span>
+                                            @lang('checkout.date_order.product')<span>@lang('checkout.date_order.total')</span>
                                         </p>
                                         <ul class="co-pd-list">
-
-
                                             @foreach($productInOrder as $product)
                                                 <li class="clearfix">
                                                 <div class="co-name">
                                                     {{$product->name}} ({{$orderItems[$product->id]}})
                                                 </div>
                                                 <div class="co-price">
-                                                    {{$orderSum->SumProductInOrder($product->price, $orderItems[$product->id])}}
+                                                    {{$orderSum->SumProductInOrder($product->price, $orderItems[$product->id])}} грн
                                                 </div>
                                                 </li>
                                                 @endforeach
-
-
                                         </ul>
                                     </div>
                                     <table class="shop_table">
                                         <tbody>
                                         <tr class="cart-subtotal">
-                                            <th>Subtotal</th>
-                                            <td>$ 1.215.00</td>
+                                            <th>@lang('checkout.date_order.total')</th>
+                                            <td>{{$subSum}} грн</td>
                                         </tr>
 {{--                                        <tr class="cart-shipping v2">--}}
 {{--                                            <th>Shipping</th>--}}
@@ -141,10 +158,6 @@ use Illuminate\Support\Facades\Auth;
 {{--                                                </ul>--}}
 {{--                                            </td>--}}
 {{--                                        </tr>--}}
-                                        <tr class="order-total v2">
-                                            <th>Total</th>
-                                            <td>$ 1.215.00</td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -173,20 +186,24 @@ use Illuminate\Support\Facades\Auth;
                                         @error('confirm')
                                         {{$message}}
                                         @enderror
-                                        <span>I’ve read and accept the <a href="#" class="term">terms & conditions *</a></span>
+                                        <span>@lang('checkout.date_order.conditions')</span>
                                     </label>
+                                    <h4>Оплата:</h4>
+                                    <a href="https://www.liqpay.ua/uk">
+                                        <img src="https://robot.net.ua/upload/medialibrary/ba5/liqpay.png" style="height: 70px" alt="">
+                                    </a>
                                 </div>
                                 <div class="cart-total-bottom v2">
-                                    <input type="submit" class="btn-gradient btn-checkout btn-co-order" value="Send">
+                                    <input type="submit" class="btn-gradient btn-checkout btn-co-order" value="@lang('checkout.date_order.save_order')">
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-
-
+        <script src="{{asset("js/delivery.js")}}"></script>
         @endisset
 
     @if($productInOrder == null)

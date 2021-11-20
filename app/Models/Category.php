@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 class Category extends Model
 {
     protected $guarded = [];
+    const DEFAULT_CATEGORY = 0;
+    const MEGA_CATEGORY = 1;
 
     # Кеширование категорий
     public static function cacheCategory(){
@@ -63,5 +65,28 @@ class Category extends Model
     public static function getCategoryForParse(){
         $category = self::query()->get()->pluck('hash', 'offer_id')->toArray();
         return $category;
+    }
+    public function scopeDefaultCategory($query){
+        return $query->where('status', 0);
+    }
+    public function scopeMega($query){
+        return $query->where('status', 1);
+    }
+    public static function NameCategoryByOfferId($offer_id){
+        $categoryQuery = self::query();
+        $category = $categoryQuery->where('offer_id', '=', $offer_id)->first();
+        if ($category !== null){
+            return $category->name;
+        } else {
+            return null;
+        }
+    }
+
+    public static function getCurrentListCategory(){
+        $category = self::has('products')->get();
+        return $category;
+    }
+    public function getMegaCategory(){
+        return $this->status == 1;
     }
 }

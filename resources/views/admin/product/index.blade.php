@@ -7,14 +7,13 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">basic table</h5>
+                    <h5 class="txt-dark">Все товары</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Dashboard</a></li>
-                        <li><a href="#"><span>table</span></a></li>
-                        <li class="active"><span>basic table</span></li>
+                        <li><a href="{{route('admin')}}">Главная</a></li>
+                        <li class="active"><span>Товары</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -37,19 +36,17 @@
                                 </div>
 
                             @endif
-                            <div class="pull-left">
-                                <h6 class="panel-title txt-dark">Basic Table</h6>
-                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <p class="text-muted">Add class <a href="{{route('admin.product.create')}}">
+                                <p class="text-muted">Вы можете <a href="{{route('admin.product.create')}}">
                                         <code>
                                             создать
                                         </code>
-                                    </a> in table tag.</p>
-                                <a href="{{route('admin.product.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка</a>
+                                    </a> товар.</p>
+                                <a href="{{route('admin.product.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка товаров</a>
+                                <a href="{{route('admin.product.select_category')}}" class="btn btn-success btn-outline fancy-button btn-0">Присвоть категорию товарам</a>
 
                                 <div class="table-wrap mt-40">
                                     <div class="table-responsive">

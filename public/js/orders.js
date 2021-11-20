@@ -3,7 +3,7 @@ $(document).ready(function() {
         var id = $(this).attr('data-id');
         $.ajax({
             type:'get',
-            url:"/add_to_cart/"+id,
+            url:"/order/add_to_cart/"+id,
             success:function(data){
                 $('#cart_count').html(data);
             }
@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
     $('#label5').click(function () {
-        $.get( "/quick_view_cart", function( data ) {
+        $.get( "/order/quick_view_cart", function( data ) {
             var content = [];
             $.each(data, function (index, val) {
                 //console.log('Index:' + index, 'val:' + val.id);
@@ -38,6 +38,5 @@ $(document).ready(function() {
             console.log(content);
             $('#mini-products-list').html(content);
         });
-
-    })
+    });
 });

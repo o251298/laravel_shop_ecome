@@ -123,4 +123,25 @@ class CategoryController extends Controller
         );
         return response()->stream($csv,200, $headers);
     }
+
+    public function listCategory(){
+        $categoryQuery = Category::query();
+        $categories = $categoryQuery->defaultCategory()->get();
+
+        return view('admin.category.list', [
+            'category' => $categories
+        ]);
+    }
+    public function change(Request $request){
+        $ids = $request->category;
+        $testQuery = Category::query();
+        $test = $testQuery->whereIn('id', $ids)->get();
+        foreach ($test as $category){
+            $category->status = Category::MEGA_CATEGORY;
+            $category->save();
+        }
+        return redirect()->back();
+    }
+
+    
 }

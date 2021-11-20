@@ -7,14 +7,13 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">basic table</h5>
+                    <h5 class="txt-dark">Список категорий</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Dashboard</a></li>
-                        <li><a href="#"><span>table</span></a></li>
-                        <li class="active"><span>basic table</span></li>
+                        <li><a href="{{route('admin')}}">Главная</a></li>
+                        <li class="{{route('admin.category')}}"><span>Категория</span></li>
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -32,28 +31,27 @@
                                 </div>
 
                             @endif
-                            <div class="pull-left">
-                                <h6 class="panel-title txt-dark">Basic Table</h6>
-                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <p class="text-muted">Add class <a href="{{route('admin.category.create')}}">
+                                <p class="text-muted">Вы можете<a href="{{route('admin.category.create')}}">
                                         <code>
                                             создать
                                         </code>
-                                        </a> in table tag.</p>
-                                <a href="{{route('admin.category.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка</a>
+                                        </a> категорию</p>
+                                <a href="{{route('admin.category.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка категорий</a>
+                                <p class="text-muted">Тут находятся все категории с сайта</p>
                                 <div class="table-wrap mt-40">
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                <th>Название</th>
+                                                <th>Код</th>
+                                                <th>Дата добавления</th>
+                                                <th>Статус категории</th>
                                                 <th>Удалить</th>
                                                 <th>Просмотр</th>
                                             </tr>
@@ -65,6 +63,10 @@
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->code}}</td>
                                                 <td>{{$item->created_at}}</td>
+                                                <td>
+                                                    @if($item->getMegaCategory())
+                                                    @endif
+                                                </td>
                                                 <td><a href="{{route('admin.category.delete', $item->id)}}"><span class="label label-danger">Удалить</span></a></td>
                                                 <td><a href="{{route('admin.category.show', $item->id)}}"><span class="label label-primary">Просмотр</span> </a></td>
                                             </tr>

@@ -30,12 +30,13 @@ $arr_product = $order->getProductsToArray();
                                             <li>Статус: <strong>{{$order->status_orders}}</strong></li>
                                             <li>Дата заказа: <strong>{{$order->created_at}}</strong></li>
                                             <li>Сума заказа: <strong>{{$order->created_at}}</strong></li>
+                                            <li>Адрес доставки: <strong>{{$order->delivery_department->present_city}}</strong></li>
+                                            <li>Номер отделения: <strong>{{$order->delivery_department->description}}</strong></li>
                                         </ul>
                                         <div class="wrp-name" style="margin-top: 30px"><span class="name">Товары</span></div>
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th scope="col">ID товара</th>
                                                 <th scope="col">Фото</th>
                                                 <th scope="col">Товар</th>
                                                 <th scope="col">кол-во</th>
@@ -44,8 +45,7 @@ $arr_product = $order->getProductsToArray();
                                             <tbody>
                                             @foreach($products as $product)
                                                 <tr>
-                                                    <th scope="row">{{$product->id}}</th>
-                                                    <td>Фото</td>
+                                                    <td><img style="width: 100px; height: 100px" src="{{$product->getImage()}}" alt=""></td>
                                                     <td><a href="{{route('view', $product->id)}}">{{$product->name}}</a></td>
                                                     <td>{{$arr_product[$product->id]}}</td>
                                                 </tr>
