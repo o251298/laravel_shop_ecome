@@ -15,14 +15,16 @@ class SaveCategory implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $path;
+    protected $xml;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($path)
+    public function __construct($path, $xml)
     {
         $this->path = $path;
+        $this->xml = $xml;
     }
 
     /**
@@ -43,7 +45,7 @@ class SaveCategory implements ShouldQueue
                 'image' => null,
                 'offer_id' => $category_price['id'],
                 'hash' => $hash,
-                'source' => 0,
+                'source' => $this->xml,
             ]);
             Log::channel('parser_category')->info($category);
         }

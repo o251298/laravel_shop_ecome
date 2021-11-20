@@ -36,7 +36,11 @@ class MainController extends Controller
 
     public function view($id)
     {
+
         $product = Product::findOrFail($id);
+        if(!$product->category_id){
+            return redirect()->back();
+        }
         return view('site.product', [
             'title' => "MAIN",
             'product' => $product

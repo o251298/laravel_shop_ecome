@@ -41,6 +41,7 @@
                                         </code>
                                         </a> категорию</p>
                                 <a href="{{route('admin.category.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка категорий</a>
+                                <a href="{{route('admin.category.list')}}" class="btn btn-success btn-outline fancy-button btn-0">Сменить статус категории</a>
                                 <p class="text-muted">Тут находятся все категории с сайта</p>
                                 <div class="table-wrap mt-40">
                                     <div class="table-responsive">

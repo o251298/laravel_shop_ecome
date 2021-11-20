@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Xml;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ParserController extends Controller
 {
@@ -26,10 +27,6 @@ class ParserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,42 +36,18 @@ class ParserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $path = Xml::saveFile($request->file('xml'));
+        $path = explode('/' , $path);
+        if ($path) {
+            session()->flash('success', $path[1]);
+            return redirect()->back();
+        } else {
+            session()->flash('error', "Jib,rf cj[hfytybz afqkf");
+            return redirect()->back();
+        }
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Xml  $xml
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Xml $xml)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Xml  $xml
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Xml $xml)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Xml  $xml
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Xml $xml)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -84,6 +57,11 @@ class ParserController extends Controller
      */
     public function destroy(Xml $xml)
     {
-        //
+        if (Storage::disk('public')->exists('/xml_files/' . $xml->link_xml)){
+            Storage::delete('/xml_files/' . $xml->link_xml);
+        }
+        $xml->products()->delete();
+        $xml->categories()->delete();
+        $xml->delete();
     }
 }

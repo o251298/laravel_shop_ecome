@@ -48,17 +48,17 @@ class XmlParser
         return $error;
     }
 
-    private function parseProduct()
+    private function parseProduct($xml)
     {
         // Создаем задание, для сохранения продукта
-        SaveProduct::dispatch($this->path);
+        SaveProduct::dispatch($this->path, $xml);
         return true;
     }
 
-    private function parseCategory()
+    private function parseCategory($xml)
     {
         // Создаем задание, для сохранения категории
-        SaveCategory::dispatch($this->path);
+        SaveCategory::dispatch($this->path, $xml);
         return true;
     }
 
@@ -107,8 +107,9 @@ class XmlParser
             'count_product' => 111,
             'link_xml' => $this->xmlUrl,
         ]);
+
         Log::channel('parser_xml')->info($xml);
-        if (($this->parseProduct()) && ($this->parseCategory())){
+        if (($this->parseProduct($xml->id)) && ($this->parseCategory($xml->id))){
             $this->result = "Вы добавили новый источник";
         }
         return $this->result;

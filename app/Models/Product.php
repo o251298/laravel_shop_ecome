@@ -17,6 +17,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function xml(){
+        return $this->belongsTo(Xml::class, 'source', 'id');
+    }
+
     public function getImage(){
         $url_image = '';
         if (Storage::disk('public')->exists($this->image)){

@@ -68,6 +68,8 @@ Route::group([
     'prefix' => 'admin'
 ], function (){
     Route::get('xmls', [ParserController::class, 'index'])->name('xmls');
+    Route::post('xml/store', [ParserController::class, 'store'])->name('admin.xml.store');
+    Route::get('xml/delete/{xml}', [ParserController::class, 'destroy'])->name('admin.xml.delete');
     Route::get('parse/{link}', [AdminController::class, 'parse'])->name('parse');
     Route::get('category', [CategoryController::class, 'index'])->name('admin.category');
     Route::get('category/list', [CategoryController::class, 'listCategory'])->name('admin.category.list');

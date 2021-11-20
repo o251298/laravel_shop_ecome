@@ -15,14 +15,16 @@ class SaveProduct implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $path;
+    protected $xml;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($path)
+    public function __construct($path, $xml)
     {
         $this->path = $path;
+        $this->xml = $xml;
     }
 
     /**
@@ -59,7 +61,7 @@ class SaveProduct implements ShouldQueue
                 'count' => $availability,
                 'show' => 0,
                 'offer_id' => $offer_id,
-                'source' => 0,
+                'source' => $this->xml,
                 'category_id_price' => $category_price_id,
                 'hash' => $hash,
             ]);

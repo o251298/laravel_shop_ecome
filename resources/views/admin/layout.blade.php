@@ -445,16 +445,66 @@
                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Управление</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
                 <ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
                     <li>
-                        <a href="{{route('admin.category')}}">Категории</a>
+                        <a href="{{route('admin.category')}}">СПИСОК ВСЕХ КАТЕГОРИЙ</a>
                     </li>
                     <li>
-                        <a href="{{route('xmls')}}">XML листы</a>
+                        <a href="{{route('admin.category.list')}}">ПРИВЯЗКА КАТЕГОРИЙ</a>
+                    </li>
+
+                    <li>
+                        <a href="{{route('admin.product')}}">ТОВАРЫ</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.product')}}">Продукты</a>
+                        <a href="{{route('admin.product.select_category')}}">ПРИВЯЗКА ТОВАРОВ К КАТЕГОРИИ</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><div class="pull-left"><i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">SPLITTER<span class="label label-success">hot</span> </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
+                    <li>
+                        <a href="{{route('xmls')}}">PARSER</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.product.select_category')}}">Поменять категорию товарам</a>
+                        <a href="chart.js.html">chartjs</a>
+                    </li>
+                    <li>
+                        <a href="chartist.html">chartist</a>
+                    </li>
+                    <li>
+                        <a href="easy-pie-chart.html">Easy Pie Chart</a>
+                    </li>
+                    <li>
+                        <a href="sparkline.html">Sparkline</a>
+                    </li>
+                    <li>
+                        <a href="peity-chart.html">Peity Chart</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><div class="pull-left"><span class="right-nav-text">Заказы<span class="label label-success">hot</span> </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
+                    <li>
+                        <a href="{{route('admin.order')}}">Flot Chart</a>
+                    </li>
+                    <li>
+                        <a href="morris-chart.html">Morris Chart</a>
+                    </li>
+                    <li>
+                        <a href="chart.js.html">chartjs</a>
+                    </li>
+                    <li>
+                        <a href="chartist.html">chartist</a>
+                    </li>
+                    <li>
+                        <a href="easy-pie-chart.html">Easy Pie Chart</a>
+                    </li>
+                    <li>
+                        <a href="sparkline.html">Sparkline</a>
+                    </li>
+                    <li>
+                        <a href="peity-chart.html">Peity Chart</a>
                     </li>
                 </ul>
             </li>
@@ -505,32 +555,6 @@
                     </li>
                     <li>
                         <a href="typeahead-js.html">typeahead</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><div class="pull-left"><i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">Заказы<span class="label label-success">hot</span> </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-                <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
-                    <li>
-                        <a href="{{route('admin.order')}}">Flot Chart</a>
-                    </li>
-                    <li>
-                        <a href="morris-chart.html">Morris Chart</a>
-                    </li>
-                    <li>
-                        <a href="chart.js.html">chartjs</a>
-                    </li>
-                    <li>
-                        <a href="chartist.html">chartist</a>
-                    </li>
-                    <li>
-                        <a href="easy-pie-chart.html">Easy Pie Chart</a>
-                    </li>
-                    <li>
-                        <a href="sparkline.html">Sparkline</a>
-                    </li>
-                    <li>
-                        <a href="peity-chart.html">Peity Chart</a>
                     </li>
                 </ul>
             </li>

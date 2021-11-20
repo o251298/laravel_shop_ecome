@@ -14,10 +14,15 @@ class AdminController extends Controller
     }
 
     public function parse($link){
-        $link = (string) $link;
-        $xml = new XmlParser($link);
-        $result = $xml->run();
-        session()->flash('parser_message', $result);
-        return redirect()->back();
+        $link_valid = explode('.', $link);
+        if ($link_valid[1] == 'xml') {
+            $link = (string) $link;
+            $xml = new XmlParser($link);
+            $result = $xml->run();
+            session()->flash('parser_message', $result);
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
     }
 }

@@ -7,14 +7,12 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark">basic table</h5>
+                    <h5 class="txt-dark">Категории с прайса</h5>
                 </div>
                 <!-- Breadcrumb -->
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Dashboard</a></li>
-                        <li><a href="#"><span>table</span></a></li>
-                        <li class="active"><span>basic table</span></li>
+
                     </ol>
                 </div>
                 <!-- /Breadcrumb -->
@@ -33,23 +31,21 @@
 
                             @endif
                             <div class="pull-left">
-                                <h6 class="panel-title txt-dark">Basic Table</h6>
+                                <h6 class="panel-title txt-dark">Сделать категорию главной</h6>
                             </div>
-                            <div class="clearfix"></div>
+
+                            <div class="clearfix">
+                                <p class="text-muted">
+                                    Расширение прав для категории <br>
+                                </p>
+                            </div>
                         </div>
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <p class="text-muted">Add class <a href="{{route('admin.category.create')}}">
-                                        <code>
-                                            создать
-                                        </code>
-                                    </a> in table tag.</p>
-                                <a href="{{route('admin.category.csv')}}" class="btn btn-success btn-outline fancy-button btn-0">Выгрузка</a>
                                 <div class="table-wrap mt-40">
                                     <div class="table-responsive">
                                         <form action="{{route('admin.category.change')}}" method="post">
-@csrf
-
+                                        @csrf
                                         <table class="table mb-0">
                                             <thead>
                                             <tr>
