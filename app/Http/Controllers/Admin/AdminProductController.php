@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Components\SmsProvider;
 use App\Components\XmlParser;
 use App\Http\Requests\ProductRequest;
 use App\Jobs\UpdateProductStatus;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use function Composer\Autoload\includeFile;
 
@@ -24,6 +26,9 @@ class AdminProductController extends Controller
      */
     public function index()
     {
+
+
+
         $product = Product::paginate(50);
 
         return view('admin.product.index', [

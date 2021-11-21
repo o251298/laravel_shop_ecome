@@ -18,6 +18,7 @@ class CreateXmlsTable extends Migration
             $table->string('hash', 255)->nullable();
             $table->integer('count_product')->nullable();
             $table->string('link_xml', 255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

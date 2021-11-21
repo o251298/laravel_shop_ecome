@@ -27,9 +27,10 @@
                         <div class="panel-heading">
                                 @if(session('success'))
                                     <div class="alert alert-success alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>{{session('success')}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <a href="{{route('parse', session('success'))}}">Прайс успешно загрузился Вам необходимо провести парсинг прайса</a>
                                     </div>
-                                    <a href="{{route('parse', session('success'))}}">Прайс успешно загрузился Вам необходимо провести парсинг прайса</a>
+
                                     <p>
                                         или запишите название файла - {{session('success')}}
                                     </p>
@@ -117,6 +118,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            @if($xmls)
                                             @foreach($xmls as $item)
                                                 <tr>
                                                     <td>{{$item->id}}</td>
@@ -129,6 +131,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>

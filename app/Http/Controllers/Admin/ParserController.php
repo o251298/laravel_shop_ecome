@@ -16,7 +16,12 @@ class ParserController extends Controller
      */
     public function index()
     {
-        $xmls = Xml::all();
+
+        $xmls = Xml::query();
+        $xmls = $xmls->get();
+        if (count($xmls) == 0) {
+            $xmls = false;
+        }
         return view('admin.parser.index', [
             'xmls' => $xmls
         ]);

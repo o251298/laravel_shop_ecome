@@ -1,11 +1,7 @@
-@extends('layout')
+@extends('auth.layout')
 @section('content')
     <div class="container">
         <div class="myaccount">
-            <ul class="breadcrumb v3">
-                <li><a href="#">Home</a></li>
-                <li class="active">My Account</li>
-            </ul>
             <div class="row flex pd">
                 <div class="account-element bd-7">
                     <div class="cmt-title text-center abs">
@@ -63,7 +59,6 @@
                         @endif
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

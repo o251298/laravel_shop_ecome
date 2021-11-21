@@ -71,6 +71,12 @@ return [
             'level' => 'debug',
         ],
 
+        'sms' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/sms_order/' . date('Y-m-d') .'/sms_send.log'),
+            'level' => 'debug',
+        ],
+
         'parser_category' => [
             'driver' => 'single',
             'path' => storage_path('logs/parser_category/' . date('Y-m-d') .'/category_from_xml.log'),

@@ -29,6 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        if (($user->isAdmin() !== null) && $user->isAdmin()){
+            return redirect()->route('admin');
+        }
         $message = false;
         if ($orders = Order::test($user->email)){
             $message = $orders;

@@ -19,6 +19,8 @@ class CreateDeliveriesTable extends Migration
             $table->string('present_city', 255)->nullable();
             $table->integer('site_key')->nullable();
             $table->string('delivery_city', 255)->nullable();
+            $table->string('description', 255)->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

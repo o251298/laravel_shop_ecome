@@ -9,6 +9,7 @@ class Xml extends Model
 {
     use SoftDeletes;
     protected $guarded = [];
+    protected $table = "xmls";
     public static function getFileHashXML($xml){
         $xmlData = null;
         $xml = (string) $xml;

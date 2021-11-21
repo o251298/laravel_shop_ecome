@@ -21,6 +21,16 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image', 255)->nullable();
             $table->double('price')->default(0);
+            $table->tinyInteger('new')->default(0);
+            $table->tinyInteger('recommend')->default(0);
+            $table->tinyInteger('hit')->default(0);
+            $table->unsignedInteger('count')->default(0);
+            $table->integer('show')->default(0);
+            $table->integer('offer_id')->nullable();
+            $table->integer('category_id_price')->nullable();
+            $table->integer('source')->nullable();
+            $table->string('hash', 255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -88,6 +88,7 @@ class Category extends Model
         $category = self::has('products')->get();
         return $category;
     }
+
     public function getMegaCategory(){
         return $this->status == 1;
     }

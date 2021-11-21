@@ -19,6 +19,11 @@ class CreateCategoriesTable extends Migration
             $table->string('code', 255)->nullable();
             $table->text('description')->nullable();
             $table->string('image', 255)->nullable();
+            $table->integer('offer_id')->nullable();
+            $table->string('hash', 255)->nullable();
+            $table->integer('source')->nullable();
+            $table->integer('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

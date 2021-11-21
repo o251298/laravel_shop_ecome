@@ -1,12 +1,8 @@
-@extends('layout')
+@extends('auth.layout')
 
 @section('content')
 <div class="container">
     <div class="myaccount">
-        <ul class="breadcrumb v3">
-            <li><a href="#">Home</a></li>
-            <li class="active">My Account</li>
-        </ul>
         <div class="row flex pd">
             <div class="account-element bd-7">
                 <div class="cmt-title text-center abs">
@@ -54,46 +50,6 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-
-                </div>
-            </div>
         </div>
     </div>
 </div>

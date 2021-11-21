@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site\Order;
 
+use App\Components\SmsProvider;
 use App\Http\Requests\CheckoutRequest;
 use App\Models\Delivery;
 use App\Models\Order;
@@ -44,7 +45,14 @@ class OrderRepository extends Controller
             'products' => $productsInJSON,
             'ip' => $request->ip(),
         ];
+
+        $text = "Добрый день! Вы успешно сделали заказ на сумму: $total грн. Адрес доставки: $request->present_city - $request->description. Статус Вашего заказа: $order->status_orders.";
         Log::channel('order')->info($logs);
+        $sms = new SmsProvider($text, "$request->phone");
+        $res = $sms->sendMessage();
+        Log::channel('sms')->info($res);
+
+
         if ($order) {
             Session::forget('order');
             session()->flash('success_create_order', 'Заказ создали');
